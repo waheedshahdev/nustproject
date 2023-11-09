@@ -223,6 +223,12 @@ class AdminController extends Controller
     {
         return view('admin.seminar.seminar');
     }
+
+    public function addSeminar()
+    {
+        return view('admin.seminar.addSeminar');
+    }
+
     //// End Seminar Section ////
 
 
