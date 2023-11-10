@@ -16,6 +16,7 @@ class AdminController extends Controller
     {
         $galleryData = Gallery::all();
         return view('admin.gallery.gallery', compact('galleryData'));
+        // test git origin
     }
 
 
