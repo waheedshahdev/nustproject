@@ -14,6 +14,8 @@ class AdminController extends Controller
 {
     public function gallery()
     {
+
+        // test GitHUb
         $galleryData = Gallery::all();
         return view('admin.gallery.gallery', compact('galleryData'));
         // test git origin
