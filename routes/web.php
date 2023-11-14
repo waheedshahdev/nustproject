@@ -29,7 +29,8 @@ Route::get('research', [FrontendController::class, 'research']);
 Route::get('research-detail/{id}', [FrontendController::class, 'researchDetail']);
 Route::get('research-area/{id}', [FrontendController::class, 'researchArea']);
 Route::get('downloads', [FrontendController::class, 'downloads']);
-Route::get('seminar', [FrontendController::class, 'seminar']);
+Route::get('events', [FrontendController::class, 'seminar']);
+Route::get('event-detail/{id}', [FrontendController::class, 'seminarDetail']);
 
 
 

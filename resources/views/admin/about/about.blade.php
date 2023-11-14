@@ -35,7 +35,7 @@
                     
                   	@foreach($about as $aboutus)
                       <tr>
-                        <td class="align-middle text-center text-sm">{!!$aboutus->about!!}</td>
+                        <td class="align-middle text-center text-sm">{!! \Illuminate\Support\Str::limit($aboutus->about, 200, '...') !!}</td>
                         
                         <td class="align-middle text-center text-sm">{{$aboutus->created_at}}</td>
                         <td class="align-middle text-center text-sm">{{$aboutus->user->name}}</td>
