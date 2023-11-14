@@ -10,7 +10,7 @@
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">Upload Document</h6>
+                <h6 class="text-white text-capitalize ps-3">Add Seminar or Event Details</h6>
               </div>
             </div>
             <div class="card-body px-0 pb-2">
@@ -47,24 +47,37 @@
               	<br>
               	<div class="row">
               	<div class="col-6">
-			            <div class="form-check form-switch ps-0">
+			                 <div class="form-check form-switch ps-0">
+                        <label class="form-label">Seminar/Event Date</label>
+                        <input type="date" class="form-control" name="seminar_date">
+                      </div>
+                      @error('seminar_date')<p class="text-danger">{{ $message }}</p>@enderror
+              	</div>
+                <div class="col-6">
+                  <div class="form-check form-switch ps-0">
                         <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" name="status" checked>
                         <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault">Status</label>
                       </div>
 
+                </div>
+
               	</div>
-              	<div class="col-6">
-			            <div class="input-group input-group-outline">
+                <br>
+                <div class="row">
+                
+                <div class="col-12">
+                  <div class="input-group input-group-outline">
                         <label class="form-label" >Description</label>
-                        <input type="text" class="form-control" name="seminar_description">
+                        <textarea class="form-control" id="summernote" name="seminar_description"></textarea>
                       </div>
                       @error('seminar_description')
-						        <p class="text-danger">{{ $message }}</p>
-						    @enderror
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
 
-              	</div>
+                </div>
 
-              	</div>
+                </div>
+
               	<br>
               	<div class="row">
               	<div class="col-10">
@@ -99,7 +112,7 @@
           <div class="card">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">Documents</h6>
+                <h6 class="text-white text-capitalize ps-3">Seminar/Events</h6>
               </div>
             </div>
 
@@ -108,8 +121,9 @@
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Group Name</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Document Name</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Seminar</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Seminar Image </th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Seminar Date </th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created At</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
@@ -117,15 +131,23 @@
                   </thead>
                   <tbody>
                
-                   	{{-- @foreach($document as $doc)
+                   	@foreach($seminar as $seminars)
                   	<tr>
-                  		<td class="align-middle text-center text-sm">{{$doc->groupName->group_name}}</td>
-                  		<td class="align-middle text-center text-sm"><a href="{{ asset('documents/'.$doc->pdf_file.'')}}" target="_blank">{{$doc->document_name}}</a></td>
-                  		<td class="align-middle text-center text-sm">{{$doc->status == True ? 'Active' : 'Inactive'}}</td>
-                  		<td class="align-middle text-center text-sm">{{$doc->created_at}}</td>
-                  		<td class="align-middle text-center text-sm"><a href="{{ url('admin/delete-document/'.$doc->id)}}" name="edit" class="btn btn-danger">Delete</a></td>
+                  		<td class="align-middle text-center text-sm">{{$seminars->seminar_name}}</td>
+                  		<td class="align-middle text-center text-sm">
+                      <div class="avatar-group mt-2">
+                          <a href="javascript:;" class="avatar" style="width: 200px; height: 200px;" data-bs-toggle="tooltip" data-bs-placement="bottom">
+                            <img src="{{asset('seminar/'.$seminars->seminar_image.'')}}" alt="{{$seminars->seminar_name}}">
+                          </a>
+                        
+                        </div>
+                      </td>
+                  		<td class="align-middle text-center text-sm">{{$seminars->seminar_date }}</td>
+                      <td class="align-middle text-center text-sm">{{$seminars->status == True ? 'Active' : 'Inactive'}}</td>
+                  		<td class="align-middle text-center text-sm">{{$seminars->created_at}}</td>
+                  		<td class="align-middle text-center text-sm"><a href="{{ url('admin/delete-document/'.$seminars->id)}}" name="edit" class="btn btn-danger">Delete</a></td>
                   	</tr>
-                  	@endforeach --}}
+                  	@endforeach
                
                   </tbody>
                 </table>

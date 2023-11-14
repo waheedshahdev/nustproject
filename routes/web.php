@@ -110,7 +110,8 @@ Auth::routes();
     Route::post('upload-document/{id}', [AdminController::class, 'uploadDocument']);
     ///////////// END Downloads Section /////////////////////////////
     //////////// Seminar Section ///////////////////////////////////
-    // Route::get('seminar', [AdminController::class, 'seminar']);
+    Route::get('seminar', [AdminController::class, 'seminar']);
+    Route::post('add-seminar', [AdminController::class, 'addSeminar']);
     
     //////////// END Seminar Section ////////////////////////////
     // Route::get('add-product', [ProductController::class, 'addProduct']);

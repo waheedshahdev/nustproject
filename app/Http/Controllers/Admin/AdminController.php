@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Gallery;
 use App\Models\About;
 use App\Models\Document;
+use App\Models\Seminar;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\GalleryRequest;
 use App\Models\Downloadgroup;
@@ -224,12 +225,36 @@ class AdminController extends Controller
     //// Seminar Section ////
     public function seminar()
     {
-        return view('admin.seminar.seminar');
+        $seminar = Seminar::orderBy('created_at', 'DESC')->get();
+        return view('admin.seminar.seminar', compact('seminar'));
     }
 
-    public function addSeminar()
+    public function addSeminar(Request $request)
     {
-        return view('admin.seminar.addSeminar');
+        $request->validate([
+            'seminar_name' => 'required|string|max:255',
+            'seminar_date' => 'required|string|max:255',
+            'seminar_description' => 'required',
+            'seminar_image' => 'required|image|mimes:jpeg,jpg,png|max:5000', // Maximum file size of 50 MB (50000 KB)
+        ]);
+
+        $seminar = new Seminar;
+
+        if($request->hasFile('seminar_image')){
+
+            $file = $request->file('seminar_image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('seminar',$filename);
+            $seminar->seminar_image = $filename;
+        }
+        $seminar->seminar_name = $request->input('seminar_name');
+        $seminar->seminar_date = $request->input('seminar_date');
+        $seminar->seminar_description = $request->input('seminar_description');
+        $seminar->uploaded_by = auth()->user()->id;
+        $seminar->status = $request->input('status') == TRUE ? '1' : '0';
+        $seminar->save();
+        return redirect('/admin/seminar')->with('status', 'Seminar has been added for Downloads!');
     }
 
     //// End Seminar Section ////
