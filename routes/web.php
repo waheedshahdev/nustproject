@@ -29,6 +29,7 @@ Route::get('research', [FrontendController::class, 'research']);
 Route::get('research-detail/{id}', [FrontendController::class, 'researchDetail']);
 Route::get('research-area/{id}', [FrontendController::class, 'researchArea']);
 Route::get('downloads', [FrontendController::class, 'downloads']);
+Route::get('seminar', [FrontendController::class, 'seminar']);
 
 
 
@@ -109,7 +110,7 @@ Auth::routes();
     Route::post('upload-document/{id}', [AdminController::class, 'uploadDocument']);
     ///////////// END Downloads Section /////////////////////////////
     //////////// Seminar Section ///////////////////////////////////
-    Route::get('seminar', [AdminController::class, 'seminar']);
+    // Route::get('seminar', [AdminController::class, 'seminar']);
     
     //////////// END Seminar Section ////////////////////////////
     // Route::get('add-product', [ProductController::class, 'addProduct']);

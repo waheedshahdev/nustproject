@@ -66,4 +66,10 @@ class FrontendController extends Controller
         return view('frontend.downloads', compact(['downloadGroup']));
     }
 
+    public function seminar()
+    {
+        // $downloadGroup = Downloadgroup::orderBy('created_at', 'DESC')->get();
+        return view('frontend.seminar');
+    }
+
 }

@@ -5,7 +5,7 @@ Seminar
 @endsection
 @section('content')  
 	<div id="banner-area">
-		<img src="images/banner/banner2.jpg" alt ="" />
+		<img src="{{ asset('frontend/images/banner/banner2.jpg') }}" alt ="" />
 		<div class="parallax-overlay"></div>
 			<!-- Subpage title start -->
 			<div class="banner-title-content">
@@ -32,7 +32,7 @@ Seminar
 					<div class="post">
 						<!-- post image start -->
 						<div class="post-image-wrapper">
-							<img src="images/blog/blog1.jpg" class="img-responsive"  alt="" />
+							<img src="{{ asset('frontend/images/blog/blog1.jpg') }}" class="img-responsive"  alt="" />
 							<span class="blog-date"><a href="#"> May 03, 2015</a></span>
 						</div><!-- post image end -->
 						<div class="post-header clearfix">
@@ -95,7 +95,7 @@ Seminar
 					<div class="post">
 						<!-- post image start -->
 						<div class="post-image-wrapper">
-							<img src="images/blog/blog2.jpg" class="img-responsive"  alt="" />
+							<img src="{{ asset('frontend/images/blog/blog2.jpg') }}" class="img-responsive"  alt="" />
 							<span class="blog-date"><a href="#"> May 23, 2015</a></span>
 						</div><!-- post image end -->
 						<div class="post-header clearfix">
@@ -163,7 +163,7 @@ Seminar
 					                  <li>
 					                    <div class="posts-thumb pull-left"> 
 					                    	<a href="#"> 
-					                    		<img alt="img" src="images/blog/blog1.jpg">
+					                    		<img alt="img" src="{{ asset('frontend/images/blog/blog1.jpg') }}">
 					                    	</a> 
 					                    </div>
 					                    <div class="post-content">
@@ -180,7 +180,7 @@ Seminar
 					                  <li>
 					                    <div class="posts-thumb pull-left"> 
 					                    	<a href="#"> 
-					                    		<img alt="img" src="images/blog/blog2.jpg">
+					                    		<img alt="img" src="{{ asset('frontend/images/blog/blog2.jpg') }}">
 					                    	</a> 
 					                    </div>
 					                    <div class="post-content">
@@ -198,7 +198,7 @@ Seminar
 					                  <li>
 					                    <div class="posts-thumb pull-left"> 
 					                    	<a href="#"> 
-					                    		<img alt="img" src="images/blog/blog3.jpg">
+					                    		<img alt="img" src="{{ asset('frontend/images/blog/blog3.jpg') }}">
 					                    	</a> 
 					                    </div>
 					                    <div class="post-content">
@@ -221,7 +221,7 @@ Seminar
 					                  <li>
 					                    <div class="posts-thumb pull-left"> 
 					                    	<a href="#"> 
-					                    		<img alt="img" src="images/blog/blog3.jpg">
+					                    		<img alt="img" src="{{ asset('frontend/images/blog/blog3.jpg') }}">
 					                    	</a> 
 					                    </div>
 					                    <div class="post-content">
@@ -238,7 +238,7 @@ Seminar
 					                  <li>
 					                    <div class="posts-thumb pull-left"> 
 					                    	<a href="#"> 
-					                    		<img alt="img" src="images/blog/blog1.jpg">
+					                    		<img alt="img" src="{{ asset('frontend/images/blog/blog1.jpg') }}">
 					                    	</a> 
 					                    </div>
 					                    <div class="post-content">
@@ -260,7 +260,7 @@ Seminar
 					                  <li>
 					                    <div class="posts-avator pull-left"> 
 					                    	<a href="#"> 
-					                    		<img alt="img" src="images/blog/avator1.png">
+					                    		<img alt="img" src="{{ asset('frontend/images/blog/avator1.png')}}">
 					                    	</a> 
 					                    </div>
 					                    <div class="post-content">
@@ -277,7 +277,7 @@ Seminar
 					                  <li>
 					                    <div class="posts-avator pull-left"> 
 					                    	<a href="#"> 
-					                    		<img alt="img" src="images/blog/avator2.jpg">
+					                    		<img alt="img" src="{{ asset('frontend/images/blog/avator2.jpg') }}">
 					                    	</a> 
 					                    </div>
 					                    <div class="post-content">
