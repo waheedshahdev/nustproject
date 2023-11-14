@@ -34,7 +34,9 @@ Seminar
 						<!-- post image start -->
 						<div class="post-image-wrapper">
 							<img src="{{ asset('seminar/'.$sem->seminar_image.'') }}" class="img-responsive"  alt="" />
+							@if(!empty($sem->seminar_date))
 							<span class="blog-date"><a href="#">{{ date('M d, Y', strtotime($sem->seminar_date)) }}</a></span>
+							@endif
 						</div><!-- post image end -->
 						<div class="post-header clearfix">
 							<h2 class="post-title">

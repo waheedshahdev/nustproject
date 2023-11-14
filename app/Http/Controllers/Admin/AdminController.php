@@ -233,9 +233,9 @@ class AdminController extends Controller
     {
         $request->validate([
             'seminar_name' => 'required|string|max:255',
-            'seminar_date' => 'required|string|max:255',
+            // 'seminar_date' => 'required|string|max:255',
             'seminar_description' => 'required',
-            'seminar_image' => 'required|image|mimes:jpeg,jpg,png|max:5000', // Maximum file size of 50 MB (50000 KB)
+            // 'seminar_image' => 'required|image|mimes:jpeg,jpg,png|max:5000', // Maximum file size of 50 MB (50000 KB)
         ]);
 
         $seminar = new Seminar;

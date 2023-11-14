@@ -36,9 +36,9 @@
 			            <div class="input-group input-group-outline">
 			              <input type="file" class="form-control" name="seminar_image">
 			            </div>
-			            @error('seminar_image')
+			           {{--  @error('seminar_image')
 						        <p class="text-danger">{{ $message }}</p>
-						    @enderror
+						    @enderror --}}
 
               	</div>
 
@@ -51,7 +51,7 @@
                         <label class="form-label">Seminar/Event Date</label>
                         <input type="date" class="form-control" name="seminar_date">
                       </div>
-                      @error('seminar_date')<p class="text-danger">{{ $message }}</p>@enderror
+                      {{-- @error('seminar_date')<p class="text-danger">{{ $message }}</p>@enderror --}}
               	</div>
                 <div class="col-6">
                   <div class="form-check form-switch ps-0">
