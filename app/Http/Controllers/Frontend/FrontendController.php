@@ -61,6 +61,12 @@ class FrontendController extends Controller
         return view('frontend.researchArea', compact(['researchArea']));
     }
 
+    public function researchGroup()
+    {
+        $categories = $categories = $this->categories();
+        return view('frontend.researchGroup', compact('categories'));
+    }
+
     public function downloads()
     {
         $downloadGroup = Downloadgroup::orderBy('created_at', 'DESC')->get();

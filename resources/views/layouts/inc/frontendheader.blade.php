@@ -44,7 +44,6 @@
 	                    <li class="{{Request::is('about') ? 'active' : '';}}"><a href="{{ url('about')}}">About</a></li>
 	                    <li class="{{Request::is('research') ? 'active' : '';}}"><a href="{{ url('research')}}">Research Studies</a></li>
 	                    <li class="{{Request::is('events') ? 'active' : '';}}"><a href="{{ url('events')}}">Seminar</a></li>
-	                    <li class="{{Request::is('infographics') ? 'active' : '';}}"><a href="{{ url('infographics')}}">Infographics</a></li>
 	                    <li class="{{Request::is('research-groups') ? 'active' : '';}}"><a href="{{ url('research-groups')}}">Research Groups</a></li>
 	                    <li class="{{Request::is('gallery') ? 'active' : '';}}"><a href="{{ url('gallery')}}">Gallery</a></li>
 	                    <li class="{{Request::is('downloads') ? 'active' : '';}}"><a href="{{ url('downloads')}}">Downloads</a></li>
