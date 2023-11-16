@@ -11,44 +11,44 @@ Welcome to NUST
 			<div class="row">
 				<div class="col-md-12 heading">
 					<span class="title-icon pull-left"><i class="fa fa-cogs"></i></span>
-					<h2 class="title">Research Group <span class="title-desc">A Quality Experience Team with 4 years experience</span></h2>
+					<h2 class="title">Events <span class="title-desc">Unleashing the Potential of the Battery Industry in Pakistan: Opportunities and Challenges</span></h2>
 				</div>
 			</div><!-- Title row end -->
 
 			<div class="row">
 				<div class="col-md-12">
-					<div class="col-md-3 col-sm-3 wow fadeInDown" data-wow-delay=".5s">
+					<div class="col-md-4 col-sm-3 wow fadeInDown" data-wow-delay=".5s">
 						<div class="service-content text-center">
 							<span class="service-icon icon-pentagon"><i class="fa fa-tachometer"></i></span>
-							<h3>Research Group 1</h3>
-							<p>High Life narwhal, banh mi PBR single-origin coffee Odd Future actually aliqua polaroid befor</p>
+							<h3>Webinars</h3>
+							<p>Solar Energy Potential and Obstacles in the Growth of the PV Industry in Pakistan</p>
 						</div>
 					</div><!--/ End first service -->
 
-					<div class="col-md-3 col-sm-3 wow fadeInDown" data-wow-delay=".8s" >
+					<div class="col-md-4 col-sm-3 wow fadeInDown" data-wow-delay=".8s" >
 						<div class="service-content text-center">
 							<span class="service-icon icon-pentagon"><i class="fa fa-android"></i></span>
-							<h3>Research Group 2</h3>
-							<p>Food truck master cleanse mixtape minim Portland, cardigan stumptown chambray swag</p>
+							<h3>Conferences</h3>
+							<p>Resolving Energy Sector Crisis through Digitalization & Innovation</p>
 						</div>
 						
 					</div><!--/ End Second service -->
 
-					<div class="col-md-3 col-sm-3 wow fadeInDown" data-wow-delay="1.1s">
+					<div class="col-md-4 col-sm-3 wow fadeInDown" data-wow-delay="1.1s">
 						<div class="service-content text-center">
 							<span class="service-icon icon-pentagon"><i class="fa fa-shopping-cart"></i></span>
-							<h3>Research Group 3</h3>
-							<p>Neutra Thundercats craft beer, listicle meggings bicycle rights 90's XOXO beard cardiga</p>
+							<h3>Consortium</h3>
+							<p>"Consortium on Clean Energy Integration" was organized by USPCAS-E, NUST in tandem with the Pakistan Renewable Energy Coalition on 9th June, 2023.</p>
 						</div>
 					</div><!--/ End Third service -->
 
-					<div class="col-md-3 col-sm-3 wow fadeInDown" data-wow-delay="1.4s">
+					{{-- <div class="col-md-3 col-sm-3 wow fadeInDown" data-wow-delay="1.4s">
 						<div class="service-content text-center">
 							<span class="service-icon icon-pentagon"><i class="fa fa-lightbulb-o"></i></span>
 							<h3>Research Group 4</h3>
 							<p>We design beautiful modern engaging websites that always latest responsive technologies.</p>
 						</div>
-					</div><!--/ End 4th service -->
+					</div> --}}
 				</div>
 			</div><!-- Content row end -->
 		</div><!--/ Container end -->
@@ -108,109 +108,22 @@ Welcome to NUST
 		<div class="container-fluid">
 			<div class="row">
 				<div id="isotope" class="isotope">
+
+					@foreach($gallery as $images)
 					<div class="col-sm-3 web-design isotope-item">
 						<div class="grid">
 							<figure class="effect-oscar">
-								<img src="{{ asset('frontend/images/portfolio/portfolio1.jpg')}}" alt="">
+								<img src="{{ asset('admin/assets/gallery/'.$images->image.'')}}" alt="">
 								<figcaption>
-									<h3>Startup Business</h3>
-									<a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-									<a class="view icon-pentagon" data-rel="prettyPhoto" href="{{ asset('frontend/images/portfolio/portfolio-bg1.jpg')}}"><i class="fa fa-search"></i></a>            
+									<h3>{{$images->name}}</h3>
+									<a class="view icon-pentagon" data-rel="prettyPhoto" href="{{ asset('admin/assets/gallery/'.$images->image.'')}}"><i class="fa fa-search"></i></a>            
 								</figcaption>			
 							</figure>
 						</div>
 					</div><!-- Isotope item end -->
+					@endforeach
+					
 
-					<div class="col-sm-3 development isotope-item">
-						<div class="grid">
-							<figure class="effect-oscar">
-								<img src="{{ asset('frontend/images/portfolio/portfolio2.jpg')}}" alt="">
-								<figcaption>
-									<h3>Easy to Lanunch</h3>
-									<a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-									<a class="view icon-pentagon" data-rel="prettyPhoto" href="{{ asset('frontend/images/portfolio/portfolio-bg2.jpg')}}"><i class="fa fa-search"></i></a>            
-								</figcaption>				
-							</figure>
-						</div>
-					</div><!-- Isotope item end -->
-
-					<div class="col-sm-3 joomla isotope-item">
-						<div class="grid">
-							<figure class="effect-oscar">
-								<img src="{{ asset('frontend/images/portfolio/portfolio3.jpg')}}" alt="">
-								<figcaption>
-									<h3>Your Business</h3>
-									<a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-									<a class="view icon-pentagon" data-rel="prettyPhoto" href="{{ asset('frontend/images/portfolio/portfolio-bg3.jpg')}}"><i class="fa fa-search"></i></a>            
-								</figcaption>				
-							</figure>
-						</div>
-					</div><!-- Isotope item end -->
-
-					<div class="col-sm-3 wordpress isotope-item">
-						<div class="grid">
-							<figure class="effect-oscar">
-								<img src="{{ asset('frontend/images/portfolio/portfolio4.jpg')}}" alt="">
-								<figcaption>
-									<h3>Prego Match</h3>
-									<a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-									<a class="view icon-pentagon" data-rel="prettyPhoto" href="{{ asset('frontend/images/portfolio/portfolio-bg4.jpg')}}"><i class="fa fa-search"></i></a>            
-								</figcaption>					
-							</figure>
-						</div>
-					</div><!-- Isotope item end -->
-
-					<div class="col-sm-3 joomla isotope-item">
-						<div class="grid">
-							<figure class="effect-oscar">
-								<img src="{{ asset('frontend/images/portfolio/portfolio5.jpg')}}" alt="">
-								<figcaption>
-									<h3>Fashion Brand</h3>
-									<a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-									<a class="view icon-pentagon" data-rel="prettyPhoto" href="{{ asset('frontend/images/portfolio/portfolio-bg5.jpg')}}"><i class="fa fa-search"></i></a>            
-								</figcaption>					
-							</figure>
-						</div>
-					</div><!-- Isotope item end -->
-
-					<div class="col-sm-3 development isotope-item">
-						<div class="grid">
-							<figure class="effect-oscar">
-								<img src="{{ asset('frontend/images/portfolio/portfolio6.jpg')}}" alt="">
-								<figcaption>
-									<h3>The Insidage</h3>
-									<a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-									<a class="view icon-pentagon" data-rel="prettyPhoto" href="{{ asset('frontend/images/portfolio/portfolio-bg1.jpg')}}"><i class="fa fa-search"></i></a>            
-								</figcaption>					
-							</figure>
-						</div>
-					</div><!-- Isotope item end -->
-
-					<div class="col-sm-3 development isotope-item">
-						<div class="grid">
-							<figure class="effect-oscar">
-								<img src="{{ asset('frontend/images/portfolio/portfolio7.jpg')}}" alt="">
-								<figcaption>
-									<h3>Light Carpet</h3>
-									<a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-									<a class="view icon-pentagon" data-rel="prettyPhoto" href="{{ asset('frontend/images/portfolio/portfolio-bg2.jpg')}}"><i class="fa fa-search"></i></a>            
-								</figcaption>					
-							</figure>
-						</div>
-					</div><!-- Isotope item end -->
-
-					<div class="col-sm-3 development isotope-item">
-						<div class="grid">
-							<figure class="effect-oscar">
-								<img src="{{ asset('frontend/images/portfolio/portfolio8.jpg')}}" alt="">
-								<figcaption>
-									<h3>Amazing Keyboard</h3>
-									<a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-									<a class="view icon-pentagon" data-rel="prettyPhoto" href="{{ asset('frontend/images/portfolio/portfolio-bg3.jpg')}}"><i class="fa fa-search"></i></a>            
-								</figcaption>					
-							</figure>
-						</div>
-					</div><!-- Isotope item end -->
 				</div><!-- Isotope content end -->
 			</div><!-- Content row end -->
 		</div><!-- Container end -->

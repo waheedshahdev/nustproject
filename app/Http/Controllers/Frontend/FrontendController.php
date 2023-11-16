@@ -15,7 +15,8 @@ class FrontendController extends Controller
     public function index()
     {
         $research = Research::orderBy('created_at', 'DESC')->get();
-        return view('frontend.index', compact(['research']));
+        $gallery = Gallery::orderBy('created_at', 'DESC')->take(8)->get();
+        return view('frontend.index', compact(['research', 'gallery']));
     }
 
     public function aboutus()
