@@ -32,6 +32,7 @@ Route::get('research-groups', [FrontendController::class, 'researchGroup']);
 Route::get('downloads', [FrontendController::class, 'downloads']);
 Route::get('events', [FrontendController::class, 'seminar']);
 Route::get('event-detail/{id}', [FrontendController::class, 'seminarDetail']);
+Route::get('event-group/{id}', [FrontendController::class, 'seminarGroup']);
 
 
 
@@ -114,6 +115,9 @@ Auth::routes();
     //////////// Seminar Section ///////////////////////////////////
     Route::get('seminar', [AdminController::class, 'seminar']);
     Route::post('add-seminar', [AdminController::class, 'addSeminar']);
+    Route::get('delete-seminar/{id}', [AdminController::class, 'deleteSeminar']);
+    Route::get('edit-seminar/{id}', [AdminController::class, 'editSeminar']);
+    Route::put('update-seminar/{id}', [AdminController::class, 'updateSeminar']);
     
     //////////// END Seminar Section ////////////////////////////
     // Route::get('add-product', [ProductController::class, 'addProduct']);

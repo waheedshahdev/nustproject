@@ -31,21 +31,40 @@
 						    @enderror
 
               	</div>
-              	<div class="col-6">
+                <div class="col-6">
     
-			            <div class="input-group input-group-outline">
-			              <input type="file" class="form-control" name="seminar_image">
-			            </div>
-			           {{--  @error('seminar_image')
-						        <p class="text-danger">{{ $message }}</p>
-						    @enderror --}}
+                    {{-- <label class="form-label">Seminar Group</label> --}}
+                  <div class="input-group input-group-outline">
+                    <select class="form-control" name="seminar_group_id">
+                      <option>Select Seminar Group</option>
+                      @foreach($seminargroup as $group)
+                      <option value="{{$group->id}}">{{$group->seminar_group}}</option>
+                      @endforeach
+                    </select>
+                      
+                  </div>
+                  @error('seminar_group_id')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
 
-              	</div>
+                </div>
+
+              	
 
               	</div>
 
               	<br>
               	<div class="row">
+                  <div class="col-6">
+    
+                  <div class="input-group input-group-outline">
+                    <input type="file" class="form-control" name="seminar_image">
+                  </div>
+                 {{--  @error('seminar_image')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror --}}
+
+                </div>
               	<div class="col-6">
 			                 <div class="form-check form-switch ps-0">
                         <label class="form-label">Seminar/Event Date</label>
@@ -53,6 +72,13 @@
                       </div>
                       {{-- @error('seminar_date')<p class="text-danger">{{ $message }}</p>@enderror --}}
               	</div>
+
+
+              	</div>
+                <br>
+                <div class="row">
+               
+
                 <div class="col-6">
                   <div class="form-check form-switch ps-0">
                         <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" name="status" checked>
@@ -61,7 +87,7 @@
 
                 </div>
 
-              	</div>
+                </div>
                 <br>
                 <div class="row">
                 
@@ -123,6 +149,7 @@
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Seminar</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Seminar Image </th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Seminar Group </th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Seminar Date </th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created At</th>
@@ -142,10 +169,11 @@
                         
                         </div>
                       </td>
-                  		<td class="align-middle text-center text-sm">{{$seminars->seminar_date }}</td>
+                  		<td class="align-middle text-center text-sm">{{$seminars->seminarGroup->seminar_group }}</td>
+                      <td class="align-middle text-center text-sm">{{$seminars->seminar_date }}</td>
                       <td class="align-middle text-center text-sm">{{$seminars->status == True ? 'Active' : 'Inactive'}}</td>
                   		<td class="align-middle text-center text-sm">{{$seminars->created_at}}</td>
-                  		<td class="align-middle text-center text-sm"><a href="{{ url('admin/delete-document/'.$seminars->id)}}" name="edit" class="btn btn-danger">Delete</a></td>
+                  		<td class="align-middle text-center text-sm"><a href="{{ url('admin/edit-seminar/'.$seminars->id)}}" name="edit" class="btn btn-info">Edit</a> <a href="{{ url('admin/delete-seminar/'.$seminars->id)}}" name="edit" class="btn btn-danger">Delete</a></td>
                   	</tr>
                   	@endforeach
                

@@ -8,6 +8,7 @@ use App\Models\Gallery;
 use App\Models\About;
 use App\Models\Document;
 use App\Models\Seminar;
+use App\Models\Seminargroup;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\GalleryRequest;
 use App\Models\Downloadgroup;
@@ -226,13 +227,15 @@ class AdminController extends Controller
     public function seminar()
     {
         $seminar = Seminar::orderBy('created_at', 'DESC')->get();
-        return view('admin.seminar.seminar', compact('seminar'));
+        $seminargroup = Seminargroup::orderBy('id', 'ASC')->get();
+        return view('admin.seminar.seminar', compact(['seminar', 'seminargroup']));
     }
 
     public function addSeminar(Request $request)
     {
         $request->validate([
             'seminar_name' => 'required|string|max:255',
+            'seminar_group_id' => 'required|string|max:255',
             // 'seminar_date' => 'required|string|max:255',
             'seminar_description' => 'required',
             // 'seminar_image' => 'required|image|mimes:jpeg,jpg,png|max:5000', // Maximum file size of 50 MB (50000 KB)
@@ -249,6 +252,7 @@ class AdminController extends Controller
             $seminar->seminar_image = $filename;
         }
         $seminar->seminar_name = $request->input('seminar_name');
+        $seminar->seminar_group_id = $request->input('seminar_group_id');
         $seminar->seminar_date = $request->input('seminar_date');
         $seminar->seminar_description = $request->input('seminar_description');
         $seminar->uploaded_by = auth()->user()->id;
@@ -257,6 +261,64 @@ class AdminController extends Controller
         return redirect('/admin/seminar')->with('status', 'Seminar has been added for Downloads!');
     }
 
+    public function deleteSeminar($id)
+    {
+        $seminar = Seminar::find($id);
+        if($seminar->seminar_image)
+        {
+
+        $path = 'seminar/'.$seminar->seminar_image.'';
+
+            if(File::exists($path))
+            {
+                File::delete($path);
+
+            }
+
+
+        }
+        $seminar->delete();
+        return redirect('/admin/seminar')->with('status', 'Seminar has been Deleted Successfully'); 
+    }
+
+        public function editSeminar($id)
+    {
+
+        $seminar = Seminar::find($id);
+        $seminargroup = Seminargroup::orderBy('id', 'ASC')->get();
+        return view('admin.seminar.editSeminar', compact(['seminar','seminargroup']));
+
+    }
+
+    public function updateSeminar(Request $request, $id)
+    {
+        $seminar = Seminar::find($id);
+        if($request->hasFile('seminar_image'))
+        {
+            $path = 'seminar'.$seminar->seminar_image;
+            if(File::exists($path))
+            {
+                File::delete($path);
+            }
+
+            $file = $request->file('seminar_image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('seminar',$filename);
+            $seminar->seminar_image = $filename;
+
+
+        }
+
+        $seminar->seminar_name = $request->input('seminar_name');
+        $seminar->seminar_group_id = $request->input('seminar_group_id');
+        $seminar->seminar_date = $request->input('seminar_date');
+        $seminar->seminar_description = $request->input('seminar_description');
+        $seminar->uploaded_by = auth()->user()->id;
+        $seminar->status = $request->input('status') == TRUE ? '1' : '0';
+        $seminar->update();
+        return redirect('/admin/seminar')->with('status', 'Research has been Updated successfully');
+    }
     //// End Seminar Section ////
 
 

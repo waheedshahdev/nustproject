@@ -10,6 +10,7 @@ use App\Models\Research;
 use App\Models\Category;
 use App\Models\Downloadgroup;
 use App\Models\Seminar;
+use App\Models\Seminargroup;
 class FrontendController extends Controller
 {
     public function index()
@@ -77,7 +78,8 @@ class FrontendController extends Controller
     public function seminar()
     {
         $seminar = Seminar::orderBy('created_at', 'DESC')->get();
-        return view('frontend.seminar', compact('seminar'));
+        $seminargroup = Seminargroup::orderBy('id', 'ASC')->get();
+        return view('frontend.seminar', compact(['seminar', 'seminargroup']));
     }
 
     public function seminarDetail($id)
@@ -85,5 +87,14 @@ class FrontendController extends Controller
         $seminarDetail = Seminar::find($id);
         return view('frontend.seminarDetail', compact('seminarDetail'));
     }
+
+    public function seminarGroup($id)
+    {
+        $groupName = Seminargroup::find($id);
+        $seminar = Seminar::where('seminar_group_id', $id)->get();
+        $seminargroup = Seminargroup::orderBy('id', 'ASC')->get();
+        return view('frontend.seminarGroup', compact(['seminar', 'seminargroup', 'groupName']));
+    }
+
 
 }

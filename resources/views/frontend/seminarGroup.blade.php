@@ -10,10 +10,10 @@ Seminar
 			<!-- Subpage title start -->
 			<div class="banner-title-content">
 	        	<div class="text-center">
-		        	<h2>Seminar & Events</h2>
+		        	<h2>{{$groupName->seminar_group}}</h2>
 		        	<ul class="breadcrumb">
 			            <li>Home</li>
-			            <li><a href="{{ url('/')}}"> Seminar $ Events</a></li>
+			            <li><a href="{{ url('/')}}"> {{$groupName->seminar_group}}</a></li>
 		          	</ul>
 	          	</div>
           	</div><!-- Subpage title end -->
