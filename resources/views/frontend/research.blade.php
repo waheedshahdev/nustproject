@@ -34,27 +34,7 @@ Research
 				</div>
 			</div><!-- Title row end -->
 
-			<div class="row ">
-				<div class="col-md-12 ts-padding about-message">
-					<p style="text-align: justify;">Presented below is an extensive compilation of research studies that significantly contribute to our comprehension and progress in these subject areas:
-						<ol>
-				    <li>Indigenous Manufacturing of Solar Photovoltaic Modules: Identifying Barriers, Policy Gaps and The Way Forward</li>
-				    <li>In-Depth Analysis of Previously Implemented National Solar Energy Policies and Recommendations for Future Policy Amendments to Support Solar PV</li>
-				    <li>Assessment of Solar Tube Well Potential in Baluchistan</li>
-				    <li>Forecasting of Renewable Energy Resources based on Microgrid and Market Access</li>
-				    <li>Energy Transition and Position of Intended Nationally Determined Contributions (INDCs) in Pakistan</li>
-				    <li>Waste Management in Metropolitan – Challenges and Opportunities</li>
-				    <li>Assessment of Biomass-based Boiler Operation Feasibility in the Textile Industry</li>
-				    <li>Status of LNG in Pakistan – A Case Study</li>
-				    <li>Customer Facilitation in the Adoption of E-Bikes, Towards Decarbonizing the Transport Sector</li>
-				    <li>Green Hydrogen as a Fuel in the Energy Transition of Pakistan, Toward a Zero-Carbon, Climate-Resilient Future</li>
-				</ol>
-					</p>
-				</div><!--/ About message end -->
-			</div><!--/ Content row end -->
-			<br>
-			<br>
-					
+
 
 
 

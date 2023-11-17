@@ -75,28 +75,22 @@
 				</div><!--/ end flickr -->
 
 				<div class="col-md-3 col-sm-12 footer-widget footer-about-us">
-					<h3 class="widget-title">About Craft</h3>
-					<p>We are a awward winning multinational company. We believe in quality and standard worldwide.</p>
+					<h3 class="widget-title">About Energy & Climate Panorama</h3>
+					<p>WE MAKING DIFFERENCE TO GREAT THINGS POSSIBLE</p>
 					<h4>Address</h4>
-					<p>1102 Saint Marys, Junction City, KS</p>
+					<p>USPCAS-E Building, National University of Sciences & Technology, H-12, Islamabad</p>
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-12">
 							<h4>Email:</h4>
-							<p>info@nust.com</p>
+							<p>ilo@uspcase.nust.edu.pk</p>
 						</div>
-						<div class="col-md-6">
+						<br>
+						<div class="col-md-12">
 							<h4>Phone No.</h4>
-							<p>+92 (345) 244-4131</p>
+							<p>+92-51-90855274</p>
 						</div>
 					</div>
-                    <form action="#" role="form">
-                        <div class="input-group subscribe">
-                            <input type="email" class="form-control" placeholder="Email Address" required="">
-                            <span class="input-group-addon">
-                              <button class="btn" type="submit"><i class="fa fa-envelope-o"> </i></button>
-                            </span>                        
-                        </div>
-                    </form>
+
 				</div><!--/ end about us -->
 
 			</div><!-- Row end -->

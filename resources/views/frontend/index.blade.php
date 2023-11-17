@@ -5,56 +5,6 @@ Welcome to NUST
 @endsection
 @section('content')   
 	@include('layouts.inc.frontendslider')
-    <!-- Service box start -->
-	<section id="service" class="service angle">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 heading">
-					<span class="title-icon pull-left"><i class="fa fa-cogs"></i></span>
-					<h2 class="title">Events <span class="title-desc">Unleashing the Potential of the Battery Industry in Pakistan: Opportunities and Challenges</span></h2>
-				</div>
-			</div><!-- Title row end -->
-
-			<div class="row">
-				<div class="col-md-12">
-					<div class="col-md-4 col-sm-3 wow fadeInDown" data-wow-delay=".5s">
-						<div class="service-content text-center">
-							<span class="service-icon icon-pentagon"><i class="fa fa-tachometer"></i></span>
-							<h3>Webinars</h3>
-							<p>Solar Energy Potential and Obstacles in the Growth of the PV Industry in Pakistan</p>
-						</div>
-					</div><!--/ End first service -->
-
-					<div class="col-md-4 col-sm-3 wow fadeInDown" data-wow-delay=".8s" >
-						<div class="service-content text-center">
-							<span class="service-icon icon-pentagon"><i class="fa fa-android"></i></span>
-							<h3>Conferences</h3>
-							<p>Resolving Energy Sector Crisis through Digitalization & Innovation</p>
-						</div>
-						
-					</div><!--/ End Second service -->
-
-					<div class="col-md-4 col-sm-3 wow fadeInDown" data-wow-delay="1.1s">
-						<div class="service-content text-center">
-							<span class="service-icon icon-pentagon"><i class="fa fa-shopping-cart"></i></span>
-							<h3>Consortium</h3>
-							<p>"Consortium on Clean Energy Integration" was organized by USPCAS-E, NUST in tandem with the Pakistan Renewable Energy Coalition on 9th June, 2023.</p>
-						</div>
-					</div><!--/ End Third service -->
-
-					{{-- <div class="col-md-3 col-sm-3 wow fadeInDown" data-wow-delay="1.4s">
-						<div class="service-content text-center">
-							<span class="service-icon icon-pentagon"><i class="fa fa-lightbulb-o"></i></span>
-							<h3>Research Group 4</h3>
-							<p>We design beautiful modern engaging websites that always latest responsive technologies.</p>
-						</div>
-					</div> --}}
-				</div>
-			</div><!-- Content row end -->
-		</div><!--/ Container end -->
-	</section><!--/ Service box end -->
-   
-	<!-- Portfolio start -->
 
 		<section id="main-container">
 		<div class="container">
@@ -169,9 +119,9 @@ Welcome to NUST
 				</div>
 				<div class="col-md-6 ts-padding img-block-right">
 					<div class="img-block-head text-center">
-						<h2>Know More About Our Company</h2>
-						<h3>Why Choose Us</h3>
-						<p>Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor Aenean sollicitudin, adipisicing elit sed lorem quis bibendum auctor.
+						<h2>Know More About Us</h2>
+						<h3>SEMINAR/EVENTS</h3>
+						<p>USPCAS-E NUST in collaboration with Pakistan Renewable Energy Coalition hosted a webinar, on February 22nd, 2023, addressing the potential and hurdles of the solar PV industry in Pakistan.
 						</p>
 				
 					</div>
@@ -179,27 +129,33 @@ Welcome to NUST
 					<div class="gap-30"></div>
 
 					<div class="image-block-content">
-						<span class="feature-icon pull-left" ><i class="fa fa-bicycle"></i></span>
+						<span class="feature-icon pull-left" ><i class="fa fa-diamond"></i></span>
+						<a href="{{url('event-group/1')}}">
 						<div class="feature-content">
-							<h3>Tons of Features</h3>
-							<p>Consectetur adipisicing elit sed do eiusmod tempor incididunt ut</p>
+							<h3>Webinars</h3>
+							<p>Solar Energy Potential and Obstacles in the Growth of the PV Industry in Pakistan</p>
 						</div>
+						</a>
 					</div><!--/ End 1st block -->
 
 					<div class="image-block-content">
 						<span class="feature-icon pull-left" ><i class="fa fa-diamond"></i></span>
+						<a href="{{url('event-group/2')}}">
 						<div class="feature-content">
-							<h3>PowerPack Theme</h3>
-							<p>Proin gravida nibh vel velit auctor Aenean sollicitudin adipisicing</p>
+							<h3>Conferences & Dialogues</h3>
+							<p>Resolving Energy Sector Crisis through Digitalization & Innovation</p>
 						</div>
+						</a>
 					</div><!--/ End 1st block -->
 
 					<div class="image-block-content">
-						<span class="feature-icon pull-left" ><i class="fa fa-street-view"></i></span>
+						<span class="feature-icon pull-left" ><i class="fa fa-diamond"></i></span>
+						<a href="{{url('event-group/3')}}">
 						<div class="feature-content">
-							<h3>Day Night Support</h3>
-							<p>Simply dummy text and typesettings industry has been the industry</p>
+							<h3>Consortium</h3>
+							<p>"Consortium on Clean Energy Integration" was organized by USPCAS-E, NUST in tandem with the Pakistan Renewable Energy Coalition on 9th June, 2023.</p>
 						</div>
+						</a>
 					</div><!--/ End 1st block -->
 
 				</div>
