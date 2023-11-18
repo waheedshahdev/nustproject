@@ -120,6 +120,11 @@ Auth::routes();
     Route::put('update-seminar/{id}', [AdminController::class, 'updateSeminar']);
     
     //////////// END Seminar Section ////////////////////////////
+    //////////// Team Section ////////////////////////////
+    
+    Route::get('team', [AdminController::class, 'team']);
+    Route::post('add-team', [AdminController::class, 'addTeam']);
+    //////////// END Team Section ////////////////////////////
     // Route::get('add-product', [ProductController::class, 'addProduct']);
     // Route::get('edit-product/{id}', [ProductController::class, 'editProduct']);
     // Route::put('update-product/{id}', [ProductController::class, 'updateProduct']);

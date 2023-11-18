@@ -11,6 +11,7 @@ use App\Models\Category;
 use App\Models\Downloadgroup;
 use App\Models\Seminar;
 use App\Models\Seminargroup;
+use App\Models\Team;
 class FrontendController extends Controller
 {
     public function index()
@@ -23,7 +24,11 @@ class FrontendController extends Controller
     public function aboutus()
     {
         $aboutData = About::all();
-        return view('frontend.aboutus', compact('aboutData'));
+        $team_pi = Team::where('team_category', 'P.I')->get();
+        $team_copi = Team::where('team_category', 'Co-P.I')->get();
+        $team_sub = Team::where('team_category', 'Research Assistants')->get();
+        $team_assistant = Team::where('team_category', 'Sub-Team Members')->get();
+        return view('frontend.aboutus', compact(['aboutData', 'team_pi', 'team_copi', 'team_sub', 'team_assistant']));
     }
 
     public function contact()

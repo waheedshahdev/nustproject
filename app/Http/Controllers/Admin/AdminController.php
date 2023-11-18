@@ -9,6 +9,7 @@ use App\Models\About;
 use App\Models\Document;
 use App\Models\Seminar;
 use App\Models\Seminargroup;
+use App\Models\Team;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\GalleryRequest;
 use App\Models\Downloadgroup;
@@ -321,7 +322,47 @@ class AdminController extends Controller
     }
     //// End Seminar Section ////
 
+    //// Team Member Section ////
+    public function team()
+    {
+        $team = Team::orderBy('created_at', 'DESC')->get();
+        // $seminargroup = Seminargroup::orderBy('id', 'ASC')->get();
+        return view('admin.team.team', compact('team'));
+    }
 
+    public function addTeam(Request $request)
+    {
+        $request->validate([
+            'team_category' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
+            'designation' => 'required|string|max:255',
+            // 'phone' => 'required|string|max:255',
+            'email' => 'required|string|max:255',
+            // 'image' => 'required|image|mimes:jpeg,jpg,png|max:5000', // Maximum file size of 50 MB (50000 KB)
+        ]);
+
+        $team = new Team;
+
+        if($request->hasFile('image')){
+
+            $file = $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('seminar',$filename);
+            $team->image = $filename;
+        }
+        $team->team_category = $request->input('team_category');
+        $team->name = $request->input('name');
+        $team->designation = $request->input('designation');
+        $team->phone = $request->input('phone');
+        $team->email = $request->input('email');
+        $team->uploaded_by = auth()->user()->id;
+        $team->status = $request->input('status') == TRUE ? '1' : '0';
+        $team->save();
+        return redirect('/admin/team')->with('status', 'Team Member has been added!');
+    }
+
+    //// END Team Member Section ////
 
 
 

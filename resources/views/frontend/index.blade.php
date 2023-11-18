@@ -167,6 +167,8 @@ Welcome to NUST
 	<!-- Team start -->
 	<section id="team" class="team">
 		<div class="container">
+
+			
 			<div class="row">
 				<div class="col-md-12 heading">
 					<span class="title-icon pull-left"><i class="fa fa-weixin"></i></span>
