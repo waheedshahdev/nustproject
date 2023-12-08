@@ -125,6 +125,8 @@ Auth::routes();
     
     Route::get('team', [AdminController::class, 'team']);
     Route::post('add-team', [AdminController::class, 'addTeam']);
+    Route::get('edit-team/{id}', [AdminController::class, 'editTeam']);
+    Route::put('update-team/{id}', [AdminController::class, 'updateTeam']);
     //////////// END Team Section ////////////////////////////
     // Route::get('add-product', [ProductController::class, 'addProduct']);
     // Route::get('edit-product/{id}', [ProductController::class, 'editProduct']);

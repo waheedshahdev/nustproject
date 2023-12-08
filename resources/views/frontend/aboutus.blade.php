@@ -85,7 +85,7 @@ About Us
 			<div class="col-md-12 col-sm-6">
 					<div class="team wow slideInLeft">
 						<div class="img-hexagon">
-							<img src="{{ asset('frontend/images/team/team2.jpg')}}" alt="">
+							<img src="{{ asset('team/'.$memberpi->image.'')}}" alt="">
 							<span class="img-top"></span>
 							<span class="img-bottom"></span>
 						</div>
@@ -117,7 +117,7 @@ About Us
 			<div class="col-md-3 col-sm-6">
 					<div class="team wow slideInLeft">
 						<div class="img-hexagon">
-							<img src="{{ asset('frontend/images/team/team2.jpg')}}" alt="">
+							<img src="{{ asset('team/'.$membercopi->image.'')}}" alt="">
 							<span class="img-top"></span>
 							<span class="img-bottom"></span>
 						</div>
@@ -144,7 +144,7 @@ About Us
 			<div class="col-md-3 col-sm-6">
 					<div class="team wow slideInLeft">
 						<div class="img-hexagon">
-							<img src="{{ asset('frontend/images/team/team2.jpg')}}" alt="">
+							<img src="{{ asset('team/'.$membersub->image.'')}}" alt="">
 							<span class="img-top"></span>
 							<span class="img-bottom"></span>
 						</div>
@@ -171,7 +171,7 @@ About Us
 			<div class="col-md-3 col-sm-6">
 					<div class="team wow slideInLeft">
 						<div class="img-hexagon">
-							<img src="{{ asset('frontend/images/team/team2.jpg')}}" alt="">
+							<img src="{{ asset('team/'.$memberassit->image.'')}}" alt="">
 							<span class="img-top"></span>
 							<span class="img-bottom"></span>
 						</div>

@@ -380,6 +380,46 @@ class AdminController extends Controller
         return redirect('/admin/team')->with('status', 'Team Member has been added!');
     }
 
+        public function editTeam($id)
+    {
+
+        $team = Team::find($id);
+        return view('admin.team.editTeam', compact(['team']));
+
+    }
+
+    public function updateTeam(Request $request, $id)
+    {
+        $team = Team::find($id);
+        if($request->hasFile('image'))
+        {
+            $path = 'team'.$team->image;
+            if(File::exists($path))
+            {
+                File::delete($path);
+            }
+
+            $file = $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('team',$filename);
+            $team->image = $filename;
+
+
+        }
+
+        $team->team_category = $request->input('team_category');
+        $team->name = $request->input('name');
+        $team->designation = $request->input('designation');
+        $team->phone = $request->input('phone');
+        $team->email = $request->input('email');
+        $team->uploaded_by = auth()->user()->id;
+        $team->status = $request->input('status') == TRUE ? '1' : '0';
+        $team->update();
+        return redirect('/admin/team')->with('status', 'Team has been Updated successfully');
+    }
+
+
     //// END Team Member Section ////
 
 

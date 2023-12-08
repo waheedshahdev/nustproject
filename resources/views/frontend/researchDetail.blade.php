@@ -4,6 +4,18 @@
 Research Detail
 @endsection
 @section('content')  
+<style>
+        .pdf-viewer {
+            width: 100%;
+            height: 100vh; /* Use the full height of the viewport */
+        }
+
+        .pdf-viewer-object {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
 
 	<div id="banner-area">
 		<img src="{{ asset('frontend/images/banner/banner2.jpg')}}" alt ="" />
@@ -28,13 +40,19 @@ Research Detail
 			<div class="row">
 				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 					<div class="post-content">
-						<div class="post-image-wrapper">
-							<img src="{{ asset('admin/assets/research/'.$researchDetail->image.'')}}" class="img-responsive"  alt="" />
+						<div class="post-image-wrapper pdf-viewer">
+				
+						
+					        {{-- <iframe class="pdf-viewer-object" src="{{ asset('admin/assets/research/'.$researchDetail->image.'')}}" title="PDF Viewer"></iframe> --}}
+					        <object class="pdf-viewer-object" data="{{ asset('admin/assets/research/'.$researchDetail->image.'')}}" type="application/pdf">
+				            <p>It appears you don't have a PDF plugin for this browser.
+				                No biggie... you can <a href="{{ asset('admin/assets/research/'.$researchDetail->image.'')}}">click here to download the PDF file.</a></p>
+				        </object>
 						</div><!-- post image end -->
-						<div class="text-justify" style="text-align: justify ;">
+						{{-- <div class="text-justify" style="text-align: justify ;">
 							
 						{!! $researchDetail->research_text!!}
-						</div>
+						</div> --}}
 
 						<div class="gap-20"></div>
 

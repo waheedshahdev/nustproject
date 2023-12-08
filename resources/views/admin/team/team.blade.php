@@ -163,7 +163,7 @@
                   		<td class="align-middle text-center text-sm">
                       <div class="avatar-group mt-2">
                           <a href="javascript:;" class="avatar" style="width: 200px; height: 200px;" data-bs-toggle="tooltip" data-bs-placement="bottom">
-                            <img src="{{asset('seminar/'.$member->image.'')}}" alt="{{$member->name}}">
+                            <img src="{{asset('team/'.$member->image.'')}}" alt="{{$member->name}}">
                           </a>
                         
                         </div>
@@ -173,7 +173,7 @@
                       <td class="align-middle text-center text-sm">{{$member->email }}</td>
                       <td class="align-middle text-center text-sm">{{$member->status == True ? 'Active' : 'Inactive'}}</td>
                   		<td class="align-middle text-center text-sm">{{$member->created_at}}</td>
-                  		<td class="align-middle text-center text-sm"><a href="{{ url('admin/edit-seminar/'.$member->id)}}" name="edit" class="btn btn-info">Edit</a> <a href="{{ url('admin/delete-seminar/'.$member->id)}}" name="edit" class="btn btn-danger">Delete</a></td>
+                  		<td class="align-middle text-center text-sm"><a href="{{ url('admin/edit-team/'.$member->id)}}" name="edit" class="btn btn-info">Edit</a> <a href="{{ url('admin/delete-team/'.$member->id)}}" name="edit" class="btn btn-danger">Delete</a></td>
                   	</tr>
                   	@endforeach
                

@@ -5,6 +5,22 @@ Research
 @endsection
 @section('content')   
 
+ <style>
+        .pdf-card {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .pdf-card-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+
 	<div id="banner-area">
 		<img src="{{ asset('frontend/images/banner/banner2.jpg') }}" alt ="" />
 		<div class="parallax-overlay"></div>
@@ -76,7 +92,8 @@ Research
 				<div class="col-md-4 col-sm-4 wow fadeInDown" data-wow-delay=".5s">
 					<div class="service-content">
 					<a href="{{ url('/research-detail/'.$result->id.'')}}">
-						<span class="service-image"><img class="img-responsive" src="{{ asset('admin/assets/research/'.$result->image.'') }}" alt="" /></span>
+						<span class="service-image">
+						<iframe class="pdf-card-iframe" src="{{ asset('admin/assets/research/'.$result->image.'') }}" title="{{$result->research_name}}"></iframe></span>
 						<p style="float:right;">{{$result->category->name}}</p>
 						<h3>{{$result->research_name}}</h3>
 					</a>
