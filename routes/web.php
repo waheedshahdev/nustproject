@@ -111,6 +111,7 @@ Auth::routes();
     Route::get('delete-group/{id}', [AdminController::class, 'deleteGroup']);
     Route::get('view-document/{id}', [AdminController::class, 'viewDocument']);
     Route::post('upload-document/{id}', [AdminController::class, 'uploadDocument']);
+    Route::get('delete-document/{id}/{uri_id}', [AdminController::class, 'deleteDocument']);
     ///////////// END Downloads Section /////////////////////////////
     //////////// Seminar Section ///////////////////////////////////
     Route::get('seminar', [AdminController::class, 'seminar']);

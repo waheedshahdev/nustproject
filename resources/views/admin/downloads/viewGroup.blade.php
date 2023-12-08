@@ -111,7 +111,7 @@
                   		<td class="align-middle text-center text-sm"><a href="{{ asset('documents/'.$doc->pdf_file.'')}}" target="_blank">{{$doc->document_name}}</a></td>
                   		<td class="align-middle text-center text-sm">{{$doc->status == True ? 'Active' : 'Inactive'}}</td>
                   		<td class="align-middle text-center text-sm">{{$doc->created_at}}</td>
-                  		<td class="align-middle text-center text-sm"><a href="{{ url('admin/delete-document/'.$doc->id)}}" name="edit" class="btn btn-danger">Delete</a></td>
+                  		<td class="align-middle text-center text-sm"><a href="{{ url('admin/delete-document/'.$doc->id.'/'.$id)}}" name="edit" class="btn btn-danger">Delete</a></td>
                   	</tr>
                   	@endforeach
                

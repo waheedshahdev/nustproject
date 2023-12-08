@@ -219,7 +219,25 @@ class AdminController extends Controller
         $document->document_name = $request->input('document_name');
         $document->status = $request->input('status') == TRUE ? '1' : '0';
         $document->save();
-        return redirect('/admin/view-document')->with('status', 'Document has been added for Downloads!');
+        return redirect('/admin/view-document/'.$id.'')->with('status', 'Document has been added for Downloads!');
+    }
+
+    public function deleteDocument($id, $uri_id)
+    {
+        $research = Document::find($id);
+        if($research->image)
+        {
+
+        $path = 'documents'.$research->image;
+            if(File::exists($path))
+            {
+                File::delete($path);
+            }
+            
+
+        }
+        $research->delete();
+        return redirect('/admin/view-document/'.$uri_id.'')->with('status', 'Document has been Deleted Successfully'); 
     }
 
     ///// END Downloads Section ////////////
