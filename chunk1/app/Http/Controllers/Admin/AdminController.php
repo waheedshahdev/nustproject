@@ -1,0 +1,429 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\Gallery;
+use App\Models\About;
+use App\Models\Document;
+use App\Models\Seminar;
+use App\Models\Seminargroup;
+use App\Models\Team;
+use Illuminate\Support\Facades\File;
+use App\Http\Requests\GalleryRequest;
+use App\Models\Downloadgroup;
+class AdminController extends Controller
+{
+    public function gallery()
+    {
+
+        // test GitHUb
+        $galleryData = Gallery::all();
+        return view('admin.gallery.gallery', compact('galleryData'));
+        // test git origin
+    }
+
+
+    public function addPicture()
+    {
+
+        
+        return view('admin.gallery.addGallery');
+    }
+
+    public function insertPicture(GalleryRequest $request)
+    {
+        // $request->validate([
+        // 'name' => 'required|string|max:255',
+        // // 'status' => 'boolean',
+        // 'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Example for image upload validation
+        // ]);
+
+        $gallery = new Gallery;
+
+        if($request->hasFile('image')){
+
+            $file = $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('admin/assets/gallery',$filename);
+            $gallery->image = $filename;
+        }
+
+        $gallery->name = $request->input('name');
+        $gallery->status = $request->input('status') == TRUE ? '1' : '0';
+        $gallery->save();
+        return redirect('/admin/add-picture')->with('status', 'Picture has been added to Gallery!');
+
+
+    }
+
+    public function deletePicture($id)
+    {
+        $gallery = Gallery::find($id);
+        if($gallery->image)
+        {
+
+        $path = 'admin/assets/gallery/'.$gallery->image.'';
+
+            if(File::exists($path))
+            {
+                File::delete($path);
+
+            }
+
+
+        }
+        $gallery->delete();
+        return redirect('/admin/gallery')->with('status', 'Picture has been Deleted Successfully'); 
+    }
+
+    public function aboutus()
+    {
+        $about = About::all();
+        return view('admin.about.about', compact('about'));
+    }
+    public function addAbout()
+    {
+        return view('admin.about.addAbout');
+    }
+
+        public function insertAbout(Request $request)
+    {
+        // $request->validate([
+        // 'about' => 'required|text|max:255',
+        // ]);
+
+        $about = new About;
+
+        $about->about = $request->input('about');
+        $about->updated_by = auth()->user()->id;
+        $about->save();
+        return redirect('/admin/add-about')->with('status', 'About Us page Content has been added to Gallery!');
+
+
+    }
+
+
+    public function editAbout($id)
+    {
+
+        $aboutinfo = About::find($id);
+        return view('admin.about.editAbout', compact('aboutinfo'));
+
+    }
+
+
+    public function updateAbout(Request $request, $id)
+    {
+        $about = About::find($id);
+        
+
+        $about->about = $request->input('about');
+        $about->updated_by = auth()->user()->id;
+        $about->update();
+        return redirect('/admin/aboutus')->with('status', 'About Us Content has been Updated successfully');
+    }
+
+
+
+    ///// Downloads Section ////////////
+    public function downloads()
+    {
+        $downloads = Downloadgroup::orderBy('created_at', 'DESC')->get();
+        return view('admin.downloads.downloads', compact('downloads'));
+    }
+ 
+    public function addGroup()
+    {
+
+        $group = Downloadgroup::orderBy('created_at', 'DESC')->get();
+        return view('admin.downloads.addGroup', compact(['group']));
+    }
+
+    public function insertGroup(Request $request)
+    {
+
+        $request->validate([
+            'group_name' => 'required|string|max:255',
+            'description' => 'required|string|max:50',
+        ]);
+
+        $group = new Downloadgroup;
+
+        $group->group_name = $request->input('group_name');
+        $group->description = $request->input('description');
+        $group->status = $request->input('status') == TRUE ? '1' : '0';
+        $group->save();
+        return redirect('/admin/download-group')->with('status', 'Group has been added for Downloads!');
+    }
+
+    public function editGroup($id)
+    {
+            $singleGroup = Downloadgroup::find($id);
+
+        return view('admin.downloads.editGroup', compact(['singleGroup']));
+    }
+
+    public function updateGroup(Request $request, $id)
+    {
+
+        $request->validate([
+            'group_name' => 'required|string|max:255',
+            'description' => 'required|string|max:50',
+        ]);
+        $group = Downloadgroup::find($id);
+
+        $group->group_name = $request->input('group_name');
+        $group->description = $request->input('description');
+        $group->status = $request->input('status') == TRUE ? '1' : '0';
+        $group->update();
+        return redirect('/admin/download-group')->with('status', 'Group has been updated for Downloads!');
+    }
+
+     public function deleteGroup($id)
+    {
+        $group = Downloadgroup::find($id);
+        $group->delete();
+        return redirect('/admin/download-group')->with('status', 'Group has been Deleted Successfully'); 
+    }
+
+
+    public function viewDocument($id)
+    {
+        $document = Document::where('download_group_id', $id)->get();
+        return view('admin.downloads.viewGroup', compact(['id', 'document']));
+    }
+    
+    public function uploadDocument(Request $request, $id)
+    {
+
+        $request->validate([
+            'document_name' => 'required|string|max:255',
+            'pdf_file' => 'required|mimes:pdf|max:50000', // Maximum file size of 50 MB (50000 KB)
+        ]);
+
+        $document = new Document;
+
+        if($request->hasFile('pdf_file')){
+
+            $file = $request->file('pdf_file');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('documents',$filename);
+            $document->pdf_file = $filename;
+        }
+
+        $document->download_group_id = $id;
+        $document->document_name = $request->input('document_name');
+        $document->status = $request->input('status') == TRUE ? '1' : '0';
+        $document->save();
+        return redirect('/admin/view-document/'.$id.'')->with('status', 'Document has been added for Downloads!');
+    }
+
+    public function deleteDocument($id, $uri_id)
+    {
+        $research = Document::find($id);
+        if($research->image)
+        {
+
+        $path = 'documents'.$research->image;
+            if(File::exists($path))
+            {
+                File::delete($path);
+            }
+            
+
+        }
+        $research->delete();
+        return redirect('/admin/view-document/'.$uri_id.'')->with('status', 'Document has been Deleted Successfully'); 
+    }
+
+    ///// END Downloads Section ////////////
+
+    //// Seminar Section ////
+    public function seminar()
+    {
+        $seminar = Seminar::orderBy('created_at', 'DESC')->get();
+        $seminargroup = Seminargroup::orderBy('id', 'ASC')->get();
+        return view('admin.seminar.seminar', compact(['seminar', 'seminargroup']));
+    }
+
+    public function addSeminar(Request $request)
+    {
+        $request->validate([
+            'seminar_name' => 'required|string|max:255',
+            'seminar_group_id' => 'required|string|max:255',
+            // 'seminar_date' => 'required|string|max:255',
+            'seminar_description' => 'required',
+            // 'seminar_image' => 'required|image|mimes:jpeg,jpg,png|max:5000', // Maximum file size of 50 MB (50000 KB)
+        ]);
+
+        $seminar = new Seminar;
+
+        if($request->hasFile('seminar_image')){
+
+            $file = $request->file('seminar_image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('seminar',$filename);
+            $seminar->seminar_image = $filename;
+        }
+        $seminar->seminar_name = $request->input('seminar_name');
+        $seminar->seminar_group_id = $request->input('seminar_group_id');
+        $seminar->seminar_date = $request->input('seminar_date');
+        $seminar->seminar_description = $request->input('seminar_description');
+        $seminar->uploaded_by = auth()->user()->id;
+        $seminar->status = $request->input('status') == TRUE ? '1' : '0';
+        $seminar->save();
+        return redirect('/admin/seminar')->with('status', 'Seminar has been added for Downloads!');
+    }
+
+    public function deleteSeminar($id)
+    {
+        $seminar = Seminar::find($id);
+        if($seminar->seminar_image)
+        {
+
+        $path = 'seminar/'.$seminar->seminar_image.'';
+
+            if(File::exists($path))
+            {
+                File::delete($path);
+
+            }
+
+
+        }
+        $seminar->delete();
+        return redirect('/admin/seminar')->with('status', 'Seminar has been Deleted Successfully'); 
+    }
+
+        public function editSeminar($id)
+    {
+
+        $seminar = Seminar::find($id);
+        $seminargroup = Seminargroup::orderBy('id', 'ASC')->get();
+        return view('admin.seminar.editSeminar', compact(['seminar','seminargroup']));
+
+    }
+
+    public function updateSeminar(Request $request, $id)
+    {
+        $seminar = Seminar::find($id);
+        if($request->hasFile('seminar_image'))
+        {
+            $path = 'seminar'.$seminar->seminar_image;
+            if(File::exists($path))
+            {
+                File::delete($path);
+            }
+
+            $file = $request->file('seminar_image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('seminar',$filename);
+            $seminar->seminar_image = $filename;
+
+
+        }
+
+        $seminar->seminar_name = $request->input('seminar_name');
+        $seminar->seminar_group_id = $request->input('seminar_group_id');
+        $seminar->seminar_date = $request->input('seminar_date');
+        $seminar->seminar_description = $request->input('seminar_description');
+        $seminar->uploaded_by = auth()->user()->id;
+        $seminar->status = $request->input('status') == TRUE ? '1' : '0';
+        $seminar->update();
+        return redirect('/admin/seminar')->with('status', 'Research has been Updated successfully');
+    }
+    //// End Seminar Section ////
+
+    //// Team Member Section ////
+    public function team()
+    {
+        $team = Team::orderBy('created_at', 'DESC')->get();
+        // $seminargroup = Seminargroup::orderBy('id', 'ASC')->get();
+        return view('admin.team.team', compact('team'));
+    }
+
+    public function addTeam(Request $request)
+    {
+        $request->validate([
+            'team_category' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
+            'designation' => 'required|string|max:255',
+            // 'phone' => 'required|string|max:255',
+            'email' => 'required|string|max:255',
+            // 'image' => 'required|image|mimes:jpeg,jpg,png|max:5000', // Maximum file size of 50 MB (50000 KB)
+        ]);
+
+        $team = new Team;
+
+        if($request->hasFile('image')){
+
+            $file = $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('seminar',$filename);
+            $team->image = $filename;
+        }
+        $team->team_category = $request->input('team_category');
+        $team->name = $request->input('name');
+        $team->designation = $request->input('designation');
+        $team->phone = $request->input('phone');
+        $team->email = $request->input('email');
+        $team->uploaded_by = auth()->user()->id;
+        $team->status = $request->input('status') == TRUE ? '1' : '0';
+        $team->save();
+        return redirect('/admin/team')->with('status', 'Team Member has been added!');
+    }
+
+        public function editTeam($id)
+    {
+
+        $team = Team::find($id);
+        return view('admin.team.editTeam', compact(['team']));
+
+    }
+
+    public function updateTeam(Request $request, $id)
+    {
+        $team = Team::find($id);
+        if($request->hasFile('image'))
+        {
+            $path = 'team'.$team->image;
+            if(File::exists($path))
+            {
+                File::delete($path);
+            }
+
+            $file = $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('team',$filename);
+            $team->image = $filename;
+
+
+        }
+
+        $team->team_category = $request->input('team_category');
+        $team->name = $request->input('name');
+        $team->designation = $request->input('designation');
+        $team->phone = $request->input('phone');
+        $team->email = $request->input('email');
+        $team->uploaded_by = auth()->user()->id;
+        $team->status = $request->input('status') == TRUE ? '1' : '0';
+        $team->update();
+        return redirect('/admin/team')->with('status', 'Team has been Updated successfully');
+    }
+
+
+    //// END Team Member Section ////
+
+
+
+
+
+}

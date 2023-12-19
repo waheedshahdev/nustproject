@@ -18,7 +18,10 @@ class FrontendController extends Controller
     {
         $research = Research::orderBy('created_at', 'DESC')->get();
         $gallery = Gallery::orderBy('created_at', 'DESC')->take(8)->get();
-        return view('frontend.index', compact(['research', 'gallery']));
+        $team_pi = Team::where('team_category', 'Co-P.I')
+              ->orWhere('team_category', 'P.I')
+              ->get();
+        return view('frontend.index', compact(['research', 'gallery', 'team_pi']));
     }
 
     public function aboutus()

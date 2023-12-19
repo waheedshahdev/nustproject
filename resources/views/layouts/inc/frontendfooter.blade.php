@@ -3,7 +3,7 @@
 	<footer id="footer" class="footer">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4 col-sm-12 footer-widget">
+				<div class="col-md-6 col-sm-12 footer-widget">
 					<h3 class="widget-title">Recent Posts</h3>
 					<div class="latest-post-items media">
 							<div class="latest-post-content media-body">
@@ -38,43 +38,7 @@
 				</div><!--/ End Recent Posts-->
 				
 
-				<div class="col-md-4 col-sm-12 footer-widget">
-					<h3 class="widget-title">Gallery</h3>
-
-					<div class="img-gallery">
-						<div class="img-container">
-							<a class="thumb-holder" data-rel="prettyPhoto" href="{{ asset('frontend/images/gallery/1.jpg')}}">
-								<img src="{{ asset('frontend/images/gallery/1.jpg')}}" alt="">
-							</a>
-							<a class="thumb-holder" data-rel="prettyPhoto" href="{{ asset('frontend/images/gallery/2.jpg')}}">
-								<img src="{{ asset('frontend/images/gallery/2.jpg')}}" alt="">
-							</a>
-							<a class="thumb-holder" data-rel="prettyPhoto" href="{{ asset('frontend/images/gallery/3.jpg')}}">
-								<img src="{{ asset('frontend/images/gallery/3.jpg')}}" alt="">
-							</a>
-							<a class="thumb-holder" data-rel="prettyPhoto" href="{{ asset('frontend/images/gallery/4.jpg')}}">
-								<img src="{{ asset('frontend/images/gallery/4.jpg')}}" alt="">
-							</a>
-							<a class="thumb-holder" data-rel="prettyPhoto" href="{{ asset('frontend/images/gallery/5.jpg')}}">
-								<img src="{{ asset('frontend/images/gallery/5.jpg')}}" alt="">
-							</a>
-							<a class="thumb-holder" data-rel="prettyPhoto" href="{{ asset('frontend/images/gallery/6.jpg')}}">
-								<img src="{{ asset('frontend/images/gallery/6.jpg')}}" alt="">
-							</a>
-							<a class="thumb-holder" data-rel="prettyPhoto" href="{{ asset('frontend/images/gallery/6.jpg')}}">
-								<img src="{{ asset('frontend/images/gallery/7.jpg')}}" alt="">
-							</a>
-							<a class="thumb-holder" data-rel="prettyPhoto" href="{{ asset('frontend/images/gallery/6.jpg')}}">
-								<img src="{{ asset('frontend/images/gallery/8.jpg')}}" alt="">
-							</a>
-							<a class="thumb-holder" data-rel="prettyPhoto" href="{{ asset('frontend/images/gallery/6.jpg')}}">
-								<img src="{{ asset('frontend/images/gallery/9.jpg')}}" alt="">
-							</a>
-						</div>
-					</div>
-				</div><!--/ end flickr -->
-
-				<div class="col-md-3 col-sm-12 footer-widget footer-about-us">
+				<div class="col-md-6 col-sm-12 footer-widget footer-about-us">
 					<h3 class="widget-title">About Energy & Climate Panorama</h3>
 					<p>WE MAKING DIFFERENCE TO GREAT THINGS POSSIBLE</p>
 					<h4>Address</h4>
