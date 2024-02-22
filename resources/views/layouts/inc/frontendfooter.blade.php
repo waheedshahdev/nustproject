@@ -4,7 +4,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-sm-12 footer-widget">
-					<h3 class="widget-title">Recent Posts</h3>
+					<h3 class="widget-title">Recent Announcements</h3>
 					<div class="latest-post-items media">
 							<div class="latest-post-content media-body">
 								<h4><a href="#">Bulgaria claims to find Europe's 'oldest town'</a></h4>
@@ -40,7 +40,6 @@
 
 				<div class="col-md-6 col-sm-12 footer-widget footer-about-us">
 					<h3 class="widget-title">About Energy & Climate Panorama</h3>
-					<p>WE MAKING DIFFERENCE TO GREAT THINGS POSSIBLE</p>
 					<h4>Address</h4>
 					<p>USPCAS-E Building, National University of Sciences & Technology, H-12, Islamabad</p>
 					<div class="row">

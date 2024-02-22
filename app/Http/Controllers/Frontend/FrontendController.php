@@ -12,11 +12,12 @@ use App\Models\Downloadgroup;
 use App\Models\Seminar;
 use App\Models\Seminargroup;
 use App\Models\Team;
+use Illuminate\Support\Facades\DB;
 class FrontendController extends Controller
 {
     public function index()
     {
-        $research = Research::orderBy('created_at', 'DESC')->get();
+        $research = Research::orderBy('created_at', 'DESC')->take(3)->get();
         $gallery = Gallery::orderBy('created_at', 'DESC')->take(8)->get();
         $team_pi = Team::where('team_category', 'Co-P.I')
               ->orWhere('team_category', 'P.I')
@@ -41,10 +42,15 @@ class FrontendController extends Controller
 
     public function gallery()
     {
-        $gallery = Gallery::orderBy('created_at', 'DESC')->get();
-
-        return view('frontend.gallery', compact('gallery'));
+        $galleryname = Gallery::select('name', DB::raw('MAX(image) as image, MAX(id) as id'))->groupBy('name')->get();
+        return view('frontend.gallery', compact(['galleryname']));
     }
+    public function galleryImages($id)
+    {
+        $gallery = Gallery::where('name', $id)->orderBy('created_at', 'DESC')->get();
+        return view('frontend.gallery_images', compact(['gallery']));
+    }
+
     public function categories()
     {
         $categories = Category::orderBy('created_at', 'ASC')->get();

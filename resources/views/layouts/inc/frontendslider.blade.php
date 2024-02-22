@@ -7,8 +7,7 @@
 						<img class="" src="{{ asset('frontend/images/slider/bg1.jpg')}}" alt="slider">
 					</div>
 					<div class="cd-full-width">
-						<h2>Need To Invent The Future!</h2>
-						<h3>We Making Difference To Great Things Possible</h3>
+						<h2>Energy and Climate Panorama</h2>
 						<a href="#0" class="btn btn-primary solid cd-btn">Discover More</a>
 					</div> <!-- .cd-full-width -->
 				</li>

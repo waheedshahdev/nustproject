@@ -36,8 +36,11 @@ Welcome to NUST
 					<div class="service-content">
 					<a href="{{ url('/research-detail/'.$result->id.'')}}">
 						<span class="service-image">
-							<iframe class="pdf-card-iframe" src="{{ asset('admin/assets/research/'.$result->image.'') }}" title="{{$result->research_name}}"></iframe></span>
-						<p style="float:right;">{{$result->category->name}}</p>
+							<div style="overflow: hidden;">
+							{{-- <iframe class="pdf-card-iframe" src="{{ asset('admin/assets/research/'.$result->image.'') }}" scrolling="no" title="{{$result->research_name}}"></iframe></span> --}}
+							<img src="{{ asset('admin/assets/research/'.$result->thumbnil.'') }}" title="{{$result->research_name}}">
+						</div>
+						{{-- <p style="float:right;">{{$result->category->name}}</p> --}}
 						<h3>{{$result->research_name}}</h3>
 					</a>
 						<p>{{ $result->small_description }}</p>
@@ -94,8 +97,8 @@ Welcome to NUST
 		</div><!-- Container end -->
 	</section><!-- Portfolio end -->
 
-	<!-- Counter Strat -->
-	<section class="ts_counter no-padding">
+	
+{{-- 	<section class="ts_counter no-padding">
 		<div class="container-fluid">
 			<div class="row facts-wrapper wow fadeInLeft text-center">
 				<div class="facts one col-md-4 col-sm-6">
@@ -124,13 +127,13 @@ Welcome to NUST
 
 
 			</div>
-		</div><!--/ Container end -->
-    </section><!--/ Counter end -->
+		</div>
+    </section> --}}
 
 	<section id="image-block" class="image-block no-padding">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-md-6 ts-padding" style="height:650px;background:url({{asset('frontend/images/image-block-bg.jpg')}}) 50% 50% / cover no-repeat;">
+				<div class="col-md-6 ts-padding" style="height:650px;background:url({{asset('frontend/images/image-block-bg.jpeg')}}) 50% 50% / cover no-repeat;">
 				</div>
 				<div class="col-md-6 ts-padding img-block-right">
 					<div class="img-block-head text-center">
@@ -187,7 +190,7 @@ Welcome to NUST
 			<div class="row">
 				<div class="col-md-12 heading">
 					<span class="title-icon pull-left"><i class="fa fa-weixin"></i></span>
-					<h2 class="title">Meet with our Team <span class="title-desc">A Quality Experience Team with 4 years experience</span></h2>
+					<h2 class="title">Meet with our Team </h2>
 				</div>
 			</div><!-- Title row end -->
 

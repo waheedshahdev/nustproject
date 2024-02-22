@@ -651,12 +651,13 @@ blockquote {
 /*-- Header style 1 --*/
 
 .header-solid{
-	background: #191919;
+/*	background: #191919;*/
+	background: #fff;
 	box-shadow: 0px 1px 7px 0 rgba(0, 0, 0, 0.2); */
 }
 
 .header-solid ul.navbar-nav > li > a{
-	color: #fff;
+/*	color: #fff;*/
 }
 
 /*-- Logo --*/
@@ -677,7 +678,7 @@ blockquote {
 
 .navbar-brand img{
 	float: right;
-	padding: 0 15px;
+/*	padding: 0 15px;*/
 
 }
 
@@ -712,7 +713,8 @@ ul.navbar-nav > li > a{
 	font-family: 'JaapokkiRegular';
   	text-transform: uppercase;
   	font-size: 14px;
-	color: #fff;
+	color: #000;
+/*	color: #fff;*/
 	padding-top: 22px;
 	padding-bottom: 20px;
 	line-height: 20px;

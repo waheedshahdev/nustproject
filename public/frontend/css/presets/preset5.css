@@ -114,7 +114,8 @@ h2.entry-title a:hover{
 /*-- Logo --*/
 
 .navbar-brand{
-	background: #334F96;
+/*	background: #334F96;*/
+	background: #fff;
 }
 
 /*-- Main navigation --*/

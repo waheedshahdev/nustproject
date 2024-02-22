@@ -25,6 +25,7 @@ Route::get('/', [FrontendController::class, 'index']);
 Route::get('about', [FrontendController::class, 'aboutus']);
 Route::get('contact', [FrontendController::class, 'contact']);
 Route::get('gallery', [FrontendController::class, 'gallery']);
+Route::get('gallery-images/{id}', [FrontendController::class, 'galleryImages']);
 Route::get('research', [FrontendController::class, 'research']);
 Route::get('research-detail/{id}', [FrontendController::class, 'researchDetail']);
 Route::get('research-area/{id}', [FrontendController::class, 'researchArea']);

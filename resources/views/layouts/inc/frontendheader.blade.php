@@ -20,7 +20,7 @@
 	<div class="body-inner">
 
 	<!-- Header start -->
-	<header id="header" class="navbar-fixed-top header" role="banner">
+	<header id="header" class="navbar-fixed-top header" role="banner" style="background: white;">
 		<div class="container">
 			<div class="row">
 				<!-- Logo start -->
@@ -43,7 +43,7 @@
 	                    <li class="{{Request::is('/') ? 'active' : '';}}" ><a href="{{ url('/')}}">Home</a></li>
 	                    <li class="{{Request::is('about') ? 'active' : '';}}"><a href="{{ url('about')}}">About</a></li>
 	                    <li class="{{Request::is('research') ? 'active' : '';}}"><a href="{{ url('research')}}">Research Studies</a></li>
-	                    <li class="{{Request::is('events') ? 'active' : '';}}"><a href="{{ url('events')}}">Seminar</a></li>
+	                    <li class="{{Request::is('events') ? 'active' : '';}}"><a href="{{ url('events')}}">Events</a></li>
 	                    <li class="{{Request::is('research-groups') ? 'active' : '';}}"><a href="{{ url('research-groups')}}">Research Groups</a></li>
 	                    <li class="{{Request::is('gallery') ? 'active' : '';}}"><a href="{{ url('gallery')}}">Gallery</a></li>
 	                    <li class="{{Request::is('downloads') ? 'active' : '';}}"><a href="{{ url('downloads')}}">Downloads</a></li>

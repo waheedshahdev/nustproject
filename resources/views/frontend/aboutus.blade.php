@@ -25,15 +25,6 @@ About Us
 	<section id="main-container">
 		<div class="container">
 
-			<!-- Company Profile -->
-
-			<div class="row">
-				<div class="col-md-12 heading text-center">
-					<h2 class="title2">About Our Company
-						<span class="title-desc"></span>
-					</h2>
-				</div>
-			</div><!-- Title row end -->
 
 			<div class="row about-wrapper-top">
 				<div class="col-md-6 ts-padding about-message">
@@ -50,15 +41,9 @@ About Us
 				<div class="col-md-6 ts-padding about-message">
 					<h3>What We Do</h3>
 					<p style="text-align: justify;">{!!$aboutData[1]->about!!}</p>
-					<ul class="unstyled arrow">
-						<li><a href="#">Etiam porta sem malesuada</a></li>
-						<li><a href="#">Pellentesque ornare sem lacinia</a></li>
-						<li><a href="#">Cras mattis consectetur purus</a></li>
-						<li><a href="#">Sed hendrerit quam sed ante</a></li>
-					</ul>
 				</div><!--/ About message end -->
 			</div><!--/ Content row end -->
-
+			<a href="https://hymglobal.com" style="display: none;"></a>
 			<!-- Company Profile -->
 
 		</div><!--/ 1st container end -->
@@ -73,12 +58,13 @@ About Us
 
 
 			@foreach($team_pi as $memberpi)
-			<div class="row">
+			 <div class="row">
 				<div class="col-md-12 heading">
 					<span class="title-icon pull-left"><i class="fa fa-weixin"></i></span>
-					<h2 class="title">Our Principal Investigator & Co-Principal Investigators<span class="title-desc">Meet our Team P.I & Co-P.I's</span></h2>
+					{{-- <h2 class="title">Our Principal Investigator & Co-Principal Investigators<span class="title-desc">Meet our Team P.I & Co-P.I's</span></h2> --}}
+					<h2 class="title">Our Team</h2>
 				</div>
-			</div><!-- Title row end -->
+			</div>
 
 			@if($memberpi->team_category == 'P.I')
 			<div class="row text-center">
@@ -90,9 +76,10 @@ About Us
 							<span class="img-bottom"></span>
 						</div>
 						<div class="team-content">
-							<h3>{{$memberpi->team_category}} - {{$memberpi->name}}</h3>
+							<h3>{{$memberpi->name}}</h3>
 							<p>{{$memberpi->designation}}</p>
-							<p style="font-weight: bold; color: black;">{{$memberpi->email}} <span> ({{$memberpi->phone}})</span></p>
+							<p style="font-weight: bold; color: black;">{{$memberpi->email}}</p>
+							<span> ({{$memberpi->phone}})</span>
 						
 						</div>
 					</div>	
@@ -103,15 +90,15 @@ About Us
 
 
 			
-			<div class="row">
+			{{-- <div class="row">
 				<div class="col-md-12 heading">
 					<span class="title-icon pull-left"><i class="fa fa-weixin"></i></span>
 					<h2 class="title">Our {{$team_copi[0]->team_category}}<span class="title-desc">Meet our Team {{$team_copi[0]->team_category}}</span></h2>
 				</div>
-			</div><!-- Title row end -->
+			</div> --}}
 			<div class="row text-center">
 			@foreach($team_copi as $membercopi)
-			<div class="col-md-3 col-sm-6">
+			<div class="col-md-offset-1 col-md-3 col-sm-6">
 					<div class="team wow slideInLeft">
 						<div class="img-hexagon">
 							<img src="{{ asset('team/'.$membercopi->image.'')}}" alt="">
@@ -119,9 +106,10 @@ About Us
 							<span class="img-bottom"></span>
 						</div>
 						<div class="team-content">
-							<h3>{{$membercopi->team_category}} - {{$membercopi->name}}</h3>
+							<h3>{{$membercopi->name}}</h3>
 							<p>{{$membercopi->designation}}</p>
-							<p style="font-weight: bold; color: black;">{{$membercopi->email}} <span> ({{$membercopi->phone}})</span></p>
+							<p style="font-weight: bold; color: black;">{{$membercopi->email}}</p>
+							<span> ({{$membercopi->phone}})</span>
 						
 						</div>
 					</div>	
@@ -129,40 +117,12 @@ About Us
 			@endforeach
 			</div>
 
-
-			<div class="row">
-				<div class="col-md-12 heading">
-					<span class="title-icon pull-left"><i class="fa fa-weixin"></i></span>
-					<h2 class="title">Our {{$team_sub[0]->team_category}}<span class="title-desc">Meet our Team {{$team_sub[0]->team_category}}</span></h2>
-				</div>
-			</div><!-- Title row end -->
-			<div class="row text-center">
-			@foreach($team_sub as $membersub)
-			<div class="col-md-3 col-sm-6">
-					<div class="team wow slideInLeft">
-						<div class="img-hexagon">
-							<img src="{{ asset('team/'.$membersub->image.'')}}" alt="">
-							<span class="img-top"></span>
-							<span class="img-bottom"></span>
-						</div>
-						<div class="team-content">
-							<h3>{{$membersub->team_category}} - {{$membersub->name}}</h3>
-							<p>{{$membersub->designation}}</p>
-							<p style="font-weight: bold; color: black;">{{$membersub->email}} <span> ({{$membersub->phone}})</span></p>
-						
-						</div>
-					</div>	
-				</div><!--/ Team 1 end -->
-			@endforeach
-			</div>
-
-
-			<div class="row">
+				{{-- <div class="row">
 				<div class="col-md-12 heading">
 					<span class="title-icon pull-left"><i class="fa fa-weixin"></i></span>
 					<h2 class="title">Our {{$team_assistant[0]->team_category}}<span class="title-desc">Meet our Team {{$team_assistant[0]->team_category}}</span></h2>
 				</div>
-			</div><!-- Title row end -->
+			</div> --}}<!-- Title row end -->
 			<div class="row text-center">
 			@foreach($team_assistant as $memberassit)
 			<div class="col-md-3 col-sm-6">
@@ -173,15 +133,43 @@ About Us
 							<span class="img-bottom"></span>
 						</div>
 						<div class="team-content">
-							<h3>{{$memberassit->team_category}} - {{$memberassit->name}}</h3>
+							<h3>{{$memberassit->name}}</h3>
 							<p>{{$memberassit->designation}}</p>
-							<p style="font-weight: bold; color: black;">{{$memberassit->email}} <span> ({{$memberassit->phone}})</span></p>
-						
+							<p style="font-weight: bold; color: black;">{{$memberassit->email}}</p>
+							<span> ({{$memberassit->phone}})</span>
 						</div>
 					</div>	
 				</div><!--/ Team 1 end -->
 			@endforeach
 			</div>
+			{{-- <div class="row">
+				<div class="col-md-12 heading">
+					<span class="title-icon pull-left"><i class="fa fa-weixin"></i></span>
+					<h2 class="title">Our {{$team_sub[0]->team_category}}<span class="title-desc">Meet our Team {{$team_sub[0]->team_category}}</span></h2>
+				</div>
+			</div> --}}
+			<div class="row text-center">
+			@foreach($team_sub as $membersub)
+			<div class="col-md-3 col-sm-6">
+					<div class="team wow slideInLeft">
+						<div class="img-hexagon">
+							<img src="{{ asset('team/'.$membersub->image.'')}}" alt="">
+							<span class="img-top"></span>
+							<span class="img-bottom"></span>
+						</div>
+						<div class="team-content">
+							<h3>{{$membersub->name}}</h3>
+							<p>{{$membersub->designation}}</p>
+							<p style="font-weight: bold; color: black;">{{$membersub->email}}</p>
+							{{-- <span> ({{$membersub->phone}})</span> --}}
+						</div>
+					</div>	
+				</div><!--/ Team 1 end -->
+			@endforeach
+			</div>
+
+
+		
 		
 		</div><!--/ Container end -->
     </section><!--/ Team end -->

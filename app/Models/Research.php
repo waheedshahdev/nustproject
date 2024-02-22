@@ -17,6 +17,7 @@ class Research extends Model
                 'small_description',
                 'research_text',
                 'image',
+                'thumbnil',
                 'status'
     ];
 

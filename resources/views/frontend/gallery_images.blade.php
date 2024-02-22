@@ -11,7 +11,7 @@ Gallery
 			<!-- Subpage title start -->
 			<div class="banner-title-content">
 	        	<div class="text-center">
-		        	<h2>Gallery</h2>
+		        	<h2>{{$gallery[0]->name}}</h2>
 		        	<ul class="breadcrumb">
 			            <li>Home</li>
 			            <li><a href="{{url('gallery')}}">Gallery</a></li>
@@ -26,13 +26,13 @@ Gallery
 		<div class="container">
 			<div class="row">
 
-				@foreach($galleryname as $pic)
+				@foreach($gallery as  $pic)
 				<div class="col-sm-3 portfolio-static-item">
 					<div class="grid">
 						<figure class="effect-oscar">
 							<img src="{{ asset('admin/assets/gallery/'.$pic->image.'')}}" alt="">
 							<figcaption>
-								<a class="link icon-pentagon" href="gallery-images/{{$pic->name}}"><i class="fa fa-link"></i></a>
+								<a class="link icon-pentagon" href="#"><i class="fa fa-link"></i></a>
 								<a class="view icon-pentagon" data-rel="prettyPhoto" href="{{ asset('admin/assets/gallery/'.$pic->image.'')}}"><i class="fa fa-search"></i></a>            
 							</figcaption>			
 						</figure>

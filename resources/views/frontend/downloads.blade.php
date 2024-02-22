@@ -6,7 +6,7 @@ Downloads
 @section('content') 
 
 	<div id="banner-area">
-		<img src="{{ asset('frontend/images/banner/banner2.jpg')}}" alt ="" />
+		<img src="{{ asset('frontend/images/banner/banner1.jpg')}}" alt ="" />
 		<div class="parallax-overlay"></div>
 			<!-- Subpage title start -->
 			<div class="banner-title-content">
@@ -28,8 +28,6 @@ Downloads
 				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 
 					<h3 class="title-border">Download Documents</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, natus voluptatibus adipisci porro magni dolore eos eius ducimus corporis quos perspiciatis quis iste, vitae autem libero ullam omnis cupiditate quam.</p>
-
 					<div class="panel-group" id="accordionA">
 						@foreach($downloadGroup as $group)
 		              	<div class="panel panel-default">

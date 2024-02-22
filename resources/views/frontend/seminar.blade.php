@@ -5,12 +5,12 @@ Seminar
 @endsection
 @section('content')  
 	<div id="banner-area">
-		<img src="{{ asset('frontend/images/banner/banner2.jpg') }}" alt ="" />
+		<img src="{{ asset('frontend/images/banner/banner1.jpg') }}" alt ="" />
 		<div class="parallax-overlay"></div>
 			<!-- Subpage title start -->
 			<div class="banner-title-content">
 	        	<div class="text-center">
-		        	<h2>Seminar & Events</h2>
+		        	<h2>Events</h2>
 		        	<ul class="breadcrumb">
 			            <li>Home</li>
 			            <li><a href="{{ url('/')}}"> Seminar $ Events</a></li>
@@ -73,7 +73,7 @@ Seminar
 					<div class="sidebar sidebar-right">
 						<!-- category start -->
 						<div class="widget widget-categories">
-							<h3 class="widget-title">Seminar/Events</h3>
+							<h3 class="widget-title">Events</h3>
 							<ul class="category-list clearfix">
 				              @foreach($seminargroup as $group)
 				              <li><a href="{{ url('/event-group/'.$group->id.'')}}">{{$group->seminar_group}}</a></li>

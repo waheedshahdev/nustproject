@@ -6,15 +6,15 @@ Research Group
 @section('content')   
 
 	<div id="banner-area">
-		<img src="{{ asset('frontend/images/banner/banner2.jpg') }}" alt ="" />
+		<img src="{{ asset('frontend/images/banner/banner1.jpg') }}" alt ="" />
 		<div class="parallax-overlay"></div>
 			<!-- Subpage title start -->
 			<div class="banner-title-content">
 	        	<div class="text-center">
-		        	<h2>Research</h2>
+		        	<h2>Research Groups</h2>
 		        	<ul class="breadcrumb">
 			            <li>Home</li>
-			            <li><a href="{{ url('/')}}"> Research Group</a></li>
+			            <li><a href="{{ url('/')}}"> Research Groups</a></li>
 		          	</ul>
 	          	</div>
           	</div><!-- Subpage title end -->
@@ -25,15 +25,7 @@ Research Group
 	<section id="main-container">
 		<div class="container">
 
-			<div class="row">
-				<div class="col-md-12 heading text-center">
-					<h2 class="title2">Research Group
-						<span class="title-desc"></span>
-					</h2>
-				</div>
-			</div><!-- Title row end -->
-
-			<div class="row ">
+			{{-- <div class="row ">
 				<div class="col-md-12 ts-padding about-message">
 					<p style="text-align: justify;">The following compilation provides an overview of diverse research groups actively involved in a range of fields and scholarly endeavors.
 						<ol>
@@ -47,8 +39,8 @@ Research Group
 				    <li>Energy Policy & Green Buildings</li>
 				</ol>
 					</p>
-				</div><!--/ About message end -->
-			</div><!--/ Content row end -->
+				</div>
+			</div> --}}
 <div class="gap-60"></div>
 
 

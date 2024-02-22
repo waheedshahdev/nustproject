@@ -5,7 +5,7 @@ Contact Us
 @endsection
 @section('content') 
 	<div id="banner-area">
-		<img src="{{ asset('frontend/images/banner/banner2.jpg')}}" alt ="" />
+		<img src="{{ asset('frontend/images/banner/banner1.jpg')}}" alt ="" />
 		<div class="parallax-overlay"></div>
 			<!-- Subpage title start -->
 			<div class="banner-title-content">

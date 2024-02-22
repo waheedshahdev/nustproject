@@ -78,7 +78,7 @@
 							<div class="row">
 								<div class="col-6">
 									@if($researchInfo->image)
-			    					<img src="{{asset('admin/assets/research/'.$researchInfo->image)}}" alt="Category Image" style="width:200px; height: 200px;">
+			    					<img src="{{asset('admin/assets/research/'.$researchInfo->image)}}" alt="Reasearch Image" style="width:200px; height: 200px;">
 			    				@endif
 									<div class="input-group input-group-outline">
 										<input type="file" class="form-control" name="image">
@@ -94,6 +94,23 @@
 										<label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault">Status</label>
 									</div>
 								</div>
+							</div>
+							<br>
+							<div class="row">
+								<label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault">Thumbnil</label>
+								<div class="col-6">
+									@if($researchInfo->thumbnil)
+			    					<img src="{{asset('admin/assets/research/'.$researchInfo->thumbnil)}}" alt="Reasearch thumbnil" style="width:200px; height: 200px;">
+			    				@endif
+									<div class="input-group input-group-outline">
+										<input type="file" class="form-control" name="thumbnil">
+									</div>
+									@error('thumbnil')
+									<span class="text-danger">{{ $message }}</span>
+								    @enderror
+								</div>
+
+								
 							</div>
 							<br>
 

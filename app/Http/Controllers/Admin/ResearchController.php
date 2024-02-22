@@ -204,6 +204,23 @@ class ResearchController extends Controller
 
         }
 
+        if($request->hasFile('thumbnil'))
+        {
+            $path = 'admin/assets/research'.$research->thumbnil;
+            if(File::exists($path))
+            {
+                File::delete($path);
+            }
+
+            $file = $request->file('thumbnil');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('admin/assets/research',$filename);
+            $research->thumbnil = $filename;
+
+
+        }
+
         $research->research_name = $request->input('research_name');
         $research->category_id = $request->input('category_id');
         $research->research_date = $request->input('research_date');

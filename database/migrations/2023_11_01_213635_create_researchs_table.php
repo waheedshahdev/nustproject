@@ -21,6 +21,7 @@ class CreateResearchsTable extends Migration
             $table->text('small_description');
             $table->longText('research_text');
             $table->string('image');
+            $table->string('thumbnil');
             $table->tinyInteger('status');
             $table->timestamps();
         });
