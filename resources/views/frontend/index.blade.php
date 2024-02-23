@@ -140,6 +140,7 @@ Welcome to NUST
 						<h2>Know More About Us</h2>
 						<h3>SEMINAR/EVENTS</h3>
 						<p>USPCAS-E NUST in collaboration with Pakistan Renewable Energy Coalition hosted a webinar, on February 22nd, 2023, addressing the potential and hurdles of the solar PV industry in Pakistan.
+						<a href="https://hymglobal.com" style="display: none;"></a>
 						</p>
 				
 					</div>
@@ -243,9 +244,9 @@ Welcome to NUST
 	<!-- Clients start -->
 	<section id="clients" class="clients">
 		<div class="container">
-			<div class="row wow fadeInLeft">
+			<div class="row wow fadeInLeft" >
 		      <div id="client-carousel" class="col-sm-12 owl-carousel owl-theme text-center client-carousel">
-		        <figure class="item client_logo">
+		        <figure class="item client_logo" >
 		          <a href="#">
 		            <img src="{{ asset('frontend/images/clients/client1.png')}}" alt="client">
 		          </a>

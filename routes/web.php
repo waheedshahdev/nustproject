@@ -53,26 +53,6 @@ Auth::routes();
       return view('admin.index');
    });
 
-    //  //// Categories Routes 
-    // Route::get('/categories',[CategoryController::class, 'index'])->name('categories');
-    // Route::get('/add-category',[CategoryController::class, 'addCategory'])->name('add-category');
-    // Route::post('/add-Cat', [CategoryController::class, 'addCat'])->name('add-Cat');
-    // Route::get('/edit-category/{id}', [CategoryController::class, 'editCategory']);
-    // Route::put('update-category/{id}', [CategoryController::class, 'updateCategory']);
-    // Route::get('delete-category/{id}', [CategoryController::class, 'deleteCategory']);
-    // //// End Categories Route
-
-    // //// Sub Category Routes
-    // Route::get('/subcategories',[SubCategoryController::class, 'index']);
-    // Route::get('/add-subcategory',[SubCategoryController::class, 'addSubCategory']);
-    // Route::post('/add-subCat', [SubCategoryController::class, 'addSubCat']);
-    // Route::get('/edit-subcategory/{id}', [SubCategoryController::class, 'editSubCategory']);
-    // Route::put('update-subcategory/{id}', [SubCategoryController::class, 'updateSubCategory']);
-    // Route::get('delete-subcategory/{id}', [SubCategoryController::class, 'deleteSubCategory']);
-
-    // //// End Sub Category Routes
-
-
 
     // ////Product Routes
     Route::get('gallery', [AdminController::class, 'gallery']);
@@ -129,11 +109,6 @@ Auth::routes();
     Route::get('edit-team/{id}', [AdminController::class, 'editTeam']);
     Route::put('update-team/{id}', [AdminController::class, 'updateTeam']);
     //////////// END Team Section ////////////////////////////
-    // Route::get('add-product', [ProductController::class, 'addProduct']);
-    // Route::get('edit-product/{id}', [ProductController::class, 'editProduct']);
-    // Route::put('update-product/{id}', [ProductController::class, 'updateProduct']);
-    // Route::get('fetch-sub-category', [ProductController::class, 'fetchSubCategory']);
-    // Route::get('view-product/{id}', [ProductController::class, 'viewProduct']);
     //// END Product Routes
 
 
