@@ -120,4 +120,4 @@ This project demonstrates my ability to develop **academic-grade publication sys
 ### Setup Steps
 1. Clone the repository  
    ```bash
-   git clone https://github.com/<your-username>/NUST-Research-Portal.git
+   git clone https://github.com/waheedshahdev>/nustproject.git
