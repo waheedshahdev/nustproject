@@ -1,6 +1,6 @@
-# NUST Research Publication Portal
+# Research Publication Website
 
-The **NUST Research Publication Portal** is a Laravel-based web application designed to help academic departments at **NUST University Pakistan** publish, manage, and organize their internal research papers in a central online repository.  
+The **Research Publication website** is a Laravel-based web application designed to help academic departments at **NUST University** publish, manage, and organize their internal research papers in a central online repository.  
 This system provides a structured, searchable, and user-friendly environment where research papers can be uploaded by departments and easily accessed by faculty, students, and researchers.
 
 This repository serves as a **public developer reference**, offering insights into how university-level research publishing platforms can be built using Laravel.
